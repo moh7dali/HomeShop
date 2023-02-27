@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "755212646520",
+    "project_id": "homeshop-8d710",
+    "storage_bucket": "homeshop-8d710.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755212646520:android:1ce785d6700bf41640558d",
+        "android_client_info": {
+          "package_name": "com.example.homeShop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755212646520-5re73ckaguhl4j3d7q4qc12jm11olat9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmLw_6PpJ4jvv7010TWL2oOsfClUZRa8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755212646520-5re73ckaguhl4j3d7q4qc12jm11olat9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "755212646520-53jssrhvachs2h3jtctqro5lr8oo368v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.homeshop"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
