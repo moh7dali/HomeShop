@@ -24,7 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
               right: 0,
               top: 0,
               bottom: 0,
-              child: Image.asset(AssetsConstant.splashBack, fit: BoxFit.cover),
+              child: Image.asset(
+                AssetsConstant.splashBack,
+                fit: BoxFit.fill,
+              ),
             ),
             AnimatedPositioned(
                 top: controller.isAnimated ? Get.height * 0 : Get.height * .2,

@@ -23,19 +23,23 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
 
   String? type;
   Future<void> getSecondScreen() async {
-    await FirebaseFirestore.instance
-        .collection('Users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get()
-        .then((value) {
-      type = value['rules'];
-      update();
-    });
-    if (type == "User") {
-      Get.to(Home());
-    } else if (type == "company") {
-      Get.to(CompanyHome);
-    } else if (type == null) {
+    if (FirebaseAuth.instance.currentUser != null) {
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get()
+          .then((value) {
+        type = value['rules'];
+        print(type);
+        print("+++++++++++++++++");
+        update();
+      });
+      if (type == "User") {
+        Get.to(Home());
+      } else if (type == "company") {
+        Get.to(CompanyHome);
+      }
+    } else {
       Get.to(Start_page());
     }
     update();
