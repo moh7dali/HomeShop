@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/noor/Desktop/Flutter/homeShop/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "C:\\Users\\96279\\Desktop\\projectmohanad\\homeshop\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXC\\values-en-rXC.xml",
             "map": [
                 {
-                    "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\e4e4e859a6c3eb07fcd255b9a85ecd7f\\transformed\\core-1.8.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/noor/.gradle/caches/transforms-3/ec4f9610c794fa4cc1c13fbaada59709/transformed/browser-1.4.0/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\ec4f9610c794fa4cc1c13fbaada59709\\transformed\\browser-1.4.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

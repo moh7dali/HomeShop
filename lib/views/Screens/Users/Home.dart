@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:homeShop/utils/assets_constant.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/views/Screens/Users/peronalPage/personalpage.dart';
@@ -126,9 +127,9 @@ class _HomeState extends State<Home> {
                       OnTapping: () {
                         Navigator.pushNamed(context, "course");
                       },
-                      CardTitle: "Courses",
-                      CardSubTitle: "Your way to your job",
-                      ImageName: "images/Courses.png",
+                      CardTitle: "Food",
+                      CardSubTitle: "Home Made Food",
+                      ImageName: "images/pizza.gif",
                     ),
                     const SizedBox(
                       height: 20,

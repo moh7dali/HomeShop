@@ -57,7 +57,7 @@ class _Company_Sign_upState extends State<Company_Sign_up> {
                               decoration: const InputDecoration(
                                   prefixIcon:
                                       Icon(Icons.person_outline_outlined),
-                                  labelText: 'Company Name',
+                                  labelText: 'Shop Name',
                                   hintText: 'Enter Your Company Name',
                                   border: OutlineInputBorder()),
                               controller: nameController,
@@ -296,13 +296,11 @@ class _Company_Sign_upState extends State<Company_Sign_up> {
                               width: 15,
                             ),
                             Text(
-                              "Continue with google",
+                              "Continue with Google",
                               style: GoogleFonts.montserrat(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Get.isDarkMode
-                                      ? Colors.white
-                                      : Colors.black),
+                                  color: buttonColor),
                             ),
                           ],
                         ),
@@ -323,7 +321,7 @@ class _Company_Sign_upState extends State<Company_Sign_up> {
                             children: const [
                               TextSpan(
                                 text: "LOG IN",
-                                style: TextStyle(color: Colors.blue),
+                                style: TextStyle(color: containerBackgroun),
                               )
                             ]))),
                   ]),

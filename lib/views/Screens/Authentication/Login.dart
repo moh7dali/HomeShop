@@ -129,7 +129,7 @@ class _LoginState extends State<Login> {
                     "Forget Password ?",
                     style: GoogleFonts.montserrat(
                       fontSize: 15,
-                      color: buttonColor,
+                      color: containerBackgroun,
                     ),
                   ),
                 ),
@@ -213,12 +213,12 @@ class _LoginState extends State<Login> {
                         width: 15,
                       ),
                       Text(
-                        "Continue with google",
+                        "Continue with Google",
                         style: GoogleFonts.montserrat(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color:
-                                Get.isDarkMode ? Colors.white : Colors.black),
+                            color:buttonColor
+                        ),
                       ),
                     ],
                   ),
@@ -240,7 +240,7 @@ class _LoginState extends State<Login> {
                       children: const [
                         TextSpan(
                           text: "Sign Up",
-                          style: TextStyle(color: Colors.blue),
+                          style: TextStyle(color: containerBackgroun),
                         )
                       ]))),
             ]),

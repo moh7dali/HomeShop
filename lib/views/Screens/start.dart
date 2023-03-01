@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homeShop/utils/constants.dart';
-
+import 'package:homeShop/utils/assets_constant.dart';
 class Start_page extends StatefulWidget {
   const Start_page({super.key});
 
@@ -21,19 +21,16 @@ class _Start_pageState extends State<Start_page> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(
-                "images/Logo.png",
+                AssetsConstant.logo2,
                 // width: 600,
-                height: height * 0.5,
+                height: height * 0.35,
               ),
               Padding(
                 padding: const EdgeInsets.all(13),
                 child: Text(
-                  "Your guide to find your dream job,",
+                  "Lets Make a Great Deal",
                   textAlign: TextAlign.left,
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: GoogleFonts.amiri(fontSize: 30,)
                 ),
               ),
               Row(
@@ -53,7 +50,7 @@ class _Start_pageState extends State<Start_page> {
                           padding: const EdgeInsets.symmetric(vertical: 15),
                         ),
                         child: Text("Get Started",
-                            style: GoogleFonts.montserrat(fontSize: 25))),
+                            style: GoogleFonts.montserrat(color: Colors.white,fontSize: 25))),
                   ),
                 ],
               )
