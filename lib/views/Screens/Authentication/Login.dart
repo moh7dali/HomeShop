@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homeShop/utils/constants.dart';
+import 'package:homeShop/viewmodel/splash_viewmodel.dart';
 import 'package:validators/validators.dart';
 
 class Login extends StatefulWidget {
@@ -152,7 +153,8 @@ class _LoginState extends State<Login> {
                                 password: passController.text);
                         us_id = myuser.user!.uid;
 
-                        Navigator.popAndPushNamed(context, "Check");
+                        SplashViewModel splashViewModel = SplashViewModel();
+                        await splashViewModel.getSecondScreen();
                       } on FirebaseAuthException catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text(e.message.toString())));
@@ -196,7 +198,8 @@ class _LoginState extends State<Login> {
                       UserCredential myuser =
                           await auth.signInWithCredential(credential);
 
-                      Navigator.popAndPushNamed(context, "Check");
+                      SplashViewModel splashViewModel = SplashViewModel();
+                      await splashViewModel.getSecondScreen();
                     } catch (e) {
                       ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(content: Text(e.toString())));
@@ -217,8 +220,7 @@ class _LoginState extends State<Login> {
                         style: GoogleFonts.montserrat(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color:buttonColor
-                        ),
+                            color: buttonColor),
                       ),
                     ],
                   ),

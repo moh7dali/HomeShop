@@ -30,10 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             AnimatedPositioned(
-                top: controller.isAnimated ? Get.height * 0 : Get.height * .2,
+                top: controller.isAnimated ? Get.height * .1 : Get.height * .25,
                 left: 0,
                 right: 0,
-                duration: const Duration(seconds: 1),
+                duration: const Duration(seconds: 2),
                 child: Hero(
                     tag: 'logoTAg',
                     child: Image.asset(

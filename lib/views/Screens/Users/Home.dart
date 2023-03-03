@@ -1,11 +1,12 @@
-// ignore_for_file: use_build_context_synchronously, prefer_const_constructors
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:homeShop/utils/assets_constant.dart';
+import 'package:homeShop/views/Screens/Users/product_screen.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/views/Screens/Users/peronalPage/personalpage.dart';
@@ -41,44 +42,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: backgroud,
       appBar: AppBar(
-        toolbarHeight: 75,
-        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
         elevation: 0,
-        leading: Builder(
-          builder: (context) => IconButton(
-            icon: Icon(
-              Ionicons.arrow_back,
-              color: Colors.black,
-              size: 35,
-            ),
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.popAndPushNamed(context, "Login");
-            },
-          ),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // ignore: prefer_const_constructors
-                Text(
-                  "Welcome",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 153, 152, 152),
-                    fontSize: 15,
-                  ),
-                ),
-                Text(
-                  username,
-                  style: TextStyle(color: Colors.black),
-                )
-              ],
-            ),
-          ],
-        ),
+        title: Image.asset(AssetsConstant.logo2, width: Get.width * .2),
         centerTitle: true,
         actions: [
           GestureDetector(
@@ -97,13 +64,12 @@ class _HomeState extends State<Home> {
               backgroundImage: NetworkImage(img_url),
             ),
           ),
-          SizedBox(
-            width: 15,
-          ),
+          SizedBox(width: 15),
         ],
       ),
+      drawer: Drawer(),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(8),
         child: ListView(
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
@@ -113,23 +79,20 @@ class _HomeState extends State<Home> {
               children: [
                 Column(
                   children: [
-                    const Text(
-                      "Start your\njourney,",
-                      style: TextStyle(
-                        fontSize: titleSize,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text("Let's Make a\n Great Deal",
+                        style: GoogleFonts.nunito(
+                          fontSize: titleSize,
+                        )),
                     const SizedBox(
                       height: 20,
                     ),
                     SectionsCard(
                       OnTapping: () {
-                        Navigator.pushNamed(context, "course");
+                        Get.to(ProductScreen());
                       },
                       CardTitle: "Food",
                       CardSubTitle: "Home Made Food",
-                      ImageName: "images/pizza.gif",
+                      ImageName: AssetsConstant.food,
                     ),
                     const SizedBox(
                       height: 20,
@@ -140,12 +103,12 @@ class _HomeState extends State<Home> {
                       },
                       CardTitle: "CV",
                       CardSubTitle: "Create your CV",
-                      ImageName: "images/cv.png",
+                      ImageName: AssetsConstant.candles,
                     ),
                   ],
                 ),
                 const SizedBox(
-                  width: 30,
+                  width: 24,
                 ),
                 Column(
                   children: [
@@ -158,7 +121,8 @@ class _HomeState extends State<Home> {
                       },
                       CardTitle: "Jobs",
                       CardSubTitle: "Find your job easly",
-                      ImageName: "images/job.png",
+                      ImageName: AssetsConstant.hoodie,
+                      width: Get.width * .5,
                     ),
                     const SizedBox(
                       height: 20,
@@ -169,7 +133,7 @@ class _HomeState extends State<Home> {
                       },
                       CardTitle: "Interview Questions",
                       CardSubTitle: "",
-                      ImageName: "images/interview.png",
+                      ImageName: AssetsConstant.gamer,
                     ),
                   ],
                 ),

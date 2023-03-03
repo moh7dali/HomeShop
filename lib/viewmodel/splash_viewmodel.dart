@@ -13,7 +13,7 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     isAnimated = true;
     update();
-    Future.delayed(const Duration(seconds: 1), () async {
+    Future.delayed(const Duration(seconds: 2), () async {
       isAnimated = false;
       update();
       await getSecondScreen();
@@ -35,12 +35,12 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
         update();
       });
       if (type == "User") {
-        Get.to(Home());
+        Get.off(Home());
       } else if (type == "company") {
-        Get.to(CompanyHome);
+        Get.off(CompanyHome);
       }
     } else {
-      Get.to(Start_page());
+      Get.off(Start_page());
     }
     update();
   }
