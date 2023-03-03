@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
@@ -11,21 +10,27 @@ class ProductViewModel extends GetxController {
   });
   @override
   void onInit() {
-    getProduct();
+    init(categoriyRule);
     super.onInit();
   }
 
-  Future getProduct() async {
+  Future init(String categoriyRule) async {
+    isLoad = true;
+    data = [];
+    getProduct(categoriyRule);
+  }
+
+  Future getProduct(String categoriyRule) async {
     final db = FirebaseFirestore.instance;
     final docRef = await db.collection("products").get().then((value) {
       value.docs.forEach((element) {
-        data.add(element.data());
+        if (element.data()['productCategory'] == categoriyRule) {
+          print(element.data());
+          data.add(element.data());
+        }
         update();
       });
     });
-    print("++++++++++++++++++++++++++++++");
-    //print(data);
-    print("++++++++++++++++++++++++++++++");
     isLoad = false;
     update();
   }

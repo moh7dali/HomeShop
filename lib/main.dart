@@ -8,11 +8,7 @@ import 'package:homeShop/views/Screens/Company/AddNewJob.dart';
 import 'package:homeShop/views/Screens/Company/AddNewTraining.dart';
 import 'package:homeShop/views/Screens/Company/HomeCompany.dart';
 import 'package:homeShop/views/Screens/Users/Home.dart';
-import 'package:homeShop/views/Screens/Users/cv.dart';
-import 'package:homeShop/views/Screens/Users/interview_preview.dart';
 import 'package:homeShop/views/Screens/Welcome.dart';
-import 'package:homeShop/views/Screens/Users/course.dart';
-import 'package:homeShop/views/Screens/Users/jobs.dart';
 import 'package:homeShop/views/Screens/start.dart';
 import 'package:homeShop/views/Widgets/splash_screen.dart';
 import 'views/Screens/Authentication/ForgetPass.dart';
@@ -32,14 +28,10 @@ Future<void> main() async {
       "Home": (context) => Home(),
       "Start": (context) => const Start_page(),
       "forgetpassword": (context) => const ForgetPassword(),
-      "jobs": (context) => const jobs(),
-      "course": (context) => const Course(),
       "welcome": (context) => Welcome(),
       "companyHome": (context) => CompanyHome(),
       "addNewJob": (context) => AddNewJob(),
       "addNewTraining": (context) => AddNewTraining(),
-      "cv": (context) => Cv(),
-      "interview": (context) => Interviwe_Preview(),
     },
     home: const MyApp(),
   ));

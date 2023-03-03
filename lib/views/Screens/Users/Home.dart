@@ -19,10 +19,6 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-final Home _Home = Home();
-bool status8 = false;
-int _page = 0;
-Widget _showPage = new Home();
 String username = "";
 String img_url = "";
 
@@ -88,10 +84,12 @@ class _HomeState extends State<Home> {
                     ),
                     SectionsCard(
                       OnTapping: () {
-                        Get.to(ProductScreen());
+                        Get.to(ProductScreen(
+                          categoriyRule: "Food",
+                        ));
                       },
                       CardTitle: "Food",
-                      CardSubTitle: "Home Made Food",
+                      CardSubTitle: "",
                       ImageName: AssetsConstant.food,
                     ),
                     const SizedBox(
@@ -99,10 +97,12 @@ class _HomeState extends State<Home> {
                     ),
                     SectionsCard(
                       OnTapping: () {
-                        Navigator.pushNamed(context, "cv");
+                        Get.to(ProductScreen(
+                          categoriyRule: "homeAccessories",
+                        ));
                       },
-                      CardTitle: "CV",
-                      CardSubTitle: "Create your CV",
+                      CardTitle: "Home Accessories",
+                      CardSubTitle: "",
                       ImageName: AssetsConstant.candles,
                     ),
                   ],
@@ -117,10 +117,12 @@ class _HomeState extends State<Home> {
                     ),
                     SectionsCard(
                       OnTapping: () {
-                        Navigator.pushNamed(context, "jobs");
+                        Get.to(ProductScreen(
+                          categoriyRule: "Clothes",
+                        ));
                       },
-                      CardTitle: "Jobs",
-                      CardSubTitle: "Find your job easly",
+                      CardTitle: "Clothes",
+                      CardSubTitle: "",
                       ImageName: AssetsConstant.hoodie,
                       width: Get.width * .5,
                     ),
@@ -129,9 +131,11 @@ class _HomeState extends State<Home> {
                     ),
                     SectionsCard(
                       OnTapping: () {
-                        Navigator.pushNamed(context, "interview");
+                        Get.to(ProductScreen(
+                          categoriyRule: "electronicAccessories",
+                        ));
                       },
-                      CardTitle: "Interview Questions",
+                      CardTitle: "Electronic Accessories",
                       CardSubTitle: "",
                       ImageName: AssetsConstant.gamer,
                     ),
