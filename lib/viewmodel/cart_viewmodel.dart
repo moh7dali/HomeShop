@@ -41,6 +41,7 @@ class CartViewModel extends GetxController {
       } else {
         subTotal = subTotal! + element.productPrice!;
       }
+      update();
     });
     constTotal = subTotal;
     finalAmount = subTotal!;
@@ -70,18 +71,20 @@ class CartViewModel extends GetxController {
     int price = 0;
     CartItem accessItem =
         cartData.firstWhere((element) => element.productId == id);
+
     accessItem.quantity = accessItem.quantity! + 1;
 
-    if (accessItem.oneItemOfferPrice != 0) {
+    if (accessItem.productOfferPrice != 0) {
       accessItem.productOfferPrice =
-          ((accessItem.oneItemOfferPrice! + price) * accessItem.quantity!);
-    } else if (accessItem.oneItemOfferPrice == 0) {
+          (accessItem.oneItemOfferPrice! + price) * accessItem.quantity!;
+    } else {
       accessItem.productPrice =
           (accessItem.oneItemPrice! + price) * accessItem.quantity!;
     }
 
     cartData[cartData.indexWhere((element) => element.productId == id)] =
         accessItem;
+    update();
     shp.saveCart(cartData);
     calculateFinalTotal();
     update();
