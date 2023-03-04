@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:homeShop/views/Screens/Company/HomeCompany.dart';
+import 'package:homeShop/views/Screens/Company/home_company_screen.dart';
 import 'package:homeShop/views/Screens/Users/Home.dart';
 import 'package:homeShop/views/Screens/start.dart';
 
@@ -34,10 +34,14 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
         print("+++++++++++++++++");
         update();
       });
-      if (type == "User") {
-        Get.off(Home());
-      } else if (type == "company") {
-        Get.off(CompanyHome);
+      if (type != null) {
+        if (type == "User") {
+          Get.off(Home());
+        } else if (type == "company") {
+          Get.off(HomeCompany());
+        }
+      } else {
+        Get.off(Start_page());
       }
     } else {
       Get.off(Start_page());

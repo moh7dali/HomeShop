@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/viewmodel/product_viewmodel.dart';
-import 'package:homeShop/views/Screens/Users/cart_screen.dart';
+import 'package:homeShop/views/Widgets/cart_icon_widget.dart';
 import 'package:homeShop/views/Widgets/product_card.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -17,9 +17,12 @@ class ProductScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: containerBackgroun,
             title: Text(categoriyRule!),
-            leading: GestureDetector(
-                onTap: () => Get.to(CartScreen()),
-                child: Icon(Icons.add_shopping_cart)),
+            actions: [
+              CartIcon(
+                color: Colors.white,
+              ),
+              SizedBox(width: Get.width * .05),
+            ],
           ),
           body: Column(
             children: [
@@ -38,6 +41,7 @@ class ProductScreen extends StatelessWidget {
                               itemCount: controller.data.length,
                               itemBuilder: (context, index) {
                                 return ProductCardWidget(
+                                  isShop: false,
                                   productID: controller.data[index]
                                       ['productID'],
                                   productName: controller.data[index]
@@ -46,8 +50,8 @@ class ProductScreen extends StatelessWidget {
                                       ['productImgUrl'],
                                   productPrice: controller.data[index]
                                       ['productPrice'],
-                                  productOfferPrice: controller.data[index]
-                                      ['productOfferPrice'],
+                                  productNameAr: controller.data[index]
+                                      ['productNameAr'],
                                 );
                               },
                             ),

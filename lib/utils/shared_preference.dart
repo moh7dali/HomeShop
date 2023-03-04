@@ -2,7 +2,19 @@ import 'package:homeShop/model/add_to_cart_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
+  String? language;
   SharedPreferences? prefs;
+  saveLanguage(String val) async {
+    prefs = await SharedPreferences.getInstance();
+    prefs!.setString("Language", val);
+  }
+
+  Future<String?> getLanguage() async {
+    prefs = await SharedPreferences.getInstance();
+    language = prefs!.getString("Language");
+    return language;
+  }
+
   saveCart(List<CartItem> cartItemModel) async {
     print("******");
     print(cartToJson(cartItemModel));

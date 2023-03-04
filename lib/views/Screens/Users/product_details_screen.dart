@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homeShop/main.dart';
 import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
@@ -7,7 +8,7 @@ import 'package:homeShop/viewmodel/product_details_viewmodel.dart';
 
 class ProductDetails extends StatelessWidget {
   ProductDetails({this.productId});
-  int? productId;
+  String? productId;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProductDetailsViewModel>(
@@ -57,38 +58,16 @@ class ProductDetails extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${controller.data['productName'] ?? " "}",
+                              appLanguage == 'en'
+                                  ? "${controller.data['productName'] ?? " "}"
+                                  : "${controller.data['productNameAr'] ?? " "}",
                               style: AppTheme.boldStyle(
                                   color: Colors.black, size: 20),
                             ),
                             SizedBox(height: Get.height * .01),
-                            controller.hasOfferdPrice!
-                                ? Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        "${controller.data['productPrice']} JD",
-                                        style: AppTheme.boldStyle(
-                                                color: containerBackgroun,
-                                                size: 20)
-                                            .copyWith(
-                                                decoration: controller.data[
-                                                            'productOfferPrice'] >
-                                                        0
-                                                    ? TextDecoration.lineThrough
-                                                    : TextDecoration.none),
-                                      ),
-                                      Text(
-                                          "${controller.data['productOfferPrice']} JD",
-                                          style: AppTheme.boldStyle(
-                                              color: Colors.red, size: 20)),
-                                    ],
-                                  )
-                                : Text(
-                                    "${controller.data['productPrice'] ?? " "} JD",
-                                    style: AppTheme.boldStyle(
-                                        color: containerBackgroun, size: 20)),
+                            Text("${controller.data['productPrice'] ?? " "} JD",
+                                style: AppTheme.boldStyle(
+                                    color: containerBackgroun, size: 20)),
                             SizedBox(height: Get.height * .02),
                             Divider(color: iconColor),
                             Row(
@@ -172,17 +151,11 @@ class ProductDetails extends StatelessWidget {
                                   style: AppTheme.lightStyle(
                                       color: Colors.white, size: 25),
                                 ),
-                                controller.hasOfferdPrice!
-                                    ? Text(
-                                        "${controller.offerPrice} JD",
-                                        style: AppTheme.lightStyle(
-                                            color: Colors.white, size: 25),
-                                      )
-                                    : Text(
-                                        "${controller.price} JD",
-                                        style: AppTheme.lightStyle(
-                                            color: Colors.white, size: 25),
-                                      )
+                                Text(
+                                  "${controller.price} JD",
+                                  style: AppTheme.lightStyle(
+                                      color: Colors.white, size: 25),
+                                )
                               ])),
                       SizedBox(height: Get.height * .01)
                     ],

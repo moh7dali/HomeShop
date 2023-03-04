@@ -1,16 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:homeShop/utils/assets_constant.dart';
-import 'package:homeShop/views/Screens/Users/product_screen.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:homeShop/utils/theme/app_theme.dart';
+import 'package:homeShop/views/Screens/Users/cart_screen.dart';
+import 'package:homeShop/views/Screens/Users/main_Screen.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/views/Screens/Users/peronalPage/personalpage.dart';
-import 'package:homeShop/views/Widgets/sectionscard.dart';
+import 'package:homeShop/views/Widgets/cart_icon_widget.dart';
+import 'package:homeShop/views/Widgets/drawer.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -21,6 +20,13 @@ class Home extends StatefulWidget {
 
 String username = "";
 String img_url = "";
+int selectedIndex = 0;
+List<Widget> screen = [
+  MainScreen(),
+  personalInfo(
+    user_id: FirebaseAuth.instance.currentUser!.uid,
+  )
+];
 
 class _HomeState extends State<Home> {
   @override
@@ -38,147 +44,54 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: backgroud,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: containerBackgroun),
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(AssetsConstant.logo2, width: Get.width * .2),
         centerTitle: true,
         actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return personalInfo(
-                    user_id: FirebaseAuth.instance.currentUser!.uid,
-                  );
-                },
-              ));
-            },
-            child: CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.grey,
-              backgroundImage: NetworkImage(img_url),
-            ),
+          CartIcon(
+            color: containerBackgroun,
           ),
-          SizedBox(width: 15),
+          SizedBox(
+            width: Get.width * .04,
+          )
         ],
       ),
-      drawer: Drawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    Text("Let's Make a\n Great Deal",
-                        style: GoogleFonts.nunito(
-                          fontSize: titleSize,
-                        )),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    SectionsCard(
-                      OnTapping: () {
-                        Get.to(ProductScreen(
-                          categoriyRule: "Food",
-                        ));
-                      },
-                      CardTitle: "Food",
-                      CardSubTitle: "",
-                      ImageName: AssetsConstant.food,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    SectionsCard(
-                      OnTapping: () {
-                        Get.to(ProductScreen(
-                          categoriyRule: "homeAccessories",
-                        ));
-                      },
-                      CardTitle: "Home Accessories",
-                      CardSubTitle: "",
-                      ImageName: AssetsConstant.candles,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 24,
-                ),
-                Column(
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    SectionsCard(
-                      OnTapping: () {
-                        Get.to(ProductScreen(
-                          categoriyRule: "Clothes",
-                        ));
-                      },
-                      CardTitle: "Clothes",
-                      CardSubTitle: "",
-                      ImageName: AssetsConstant.hoodie,
-                      width: Get.width * .5,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    SectionsCard(
-                      OnTapping: () {
-                        Get.to(ProductScreen(
-                          categoriyRule: "electronicAccessories",
-                        ));
-                      },
-                      CardTitle: "Electronic Accessories",
-                      CardSubTitle: "",
-                      ImageName: AssetsConstant.gamer,
-                    ),
-                  ],
-                ),
-              ],
+      drawer: Drawerwidget(),
+      body: screen.elementAt(selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: containerBackgroun,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: backgroud,
+        selectedLabelStyle: AppTheme.boldStyle(color: Colors.white, size: 13),
+        unselectedLabelStyle: AppTheme.boldStyle(color: Colors.white, size: 13),
+        selectedIconTheme: const IconThemeData(size: 20),
+        unselectedIconTheme: const IconThemeData(size: 20),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ImageIcon(AssetImage(AssetsConstant.home)),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: SpeedDial(
-          buttonSize: Size(70, 70),
-          spaceBetweenChildren: 15,
-          child: Icon(
-            Ionicons.menu,
-            size: 30,
+            label: 'Home'.tr,
           ),
-          backgroundColor: buttonColor,
-          children: [
-            SpeedDialChild(
-              child: Icon(Icons.logout),
-              label: 'Logout',
-              onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                final GoogleSignInAccount? googleUser =
-                    await GoogleSignIn().signOut();
-                Navigator.popAndPushNamed(context, "Login");
-              },
-            ),
-            SpeedDialChild(
-              child: Icon(Ionicons.person),
-              label: 'Profile',
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return personalInfo(
-                      user_id: FirebaseAuth.instance.currentUser!.uid,
-                    );
-                  },
-                ));
-              },
-            ),
-          ]),
+          BottomNavigationBarItem(
+            icon: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: ImageIcon(AssetImage(AssetsConstant.profile))),
+            label: 'Profile'.tr,
+          ),
+        ],
+        currentIndex: selectedIndex,
+        onTap: (value) {
+          setState(() {
+            print(value);
+            selectedIndex = value;
+          });
+        },
+      ),
     );
   }
 }

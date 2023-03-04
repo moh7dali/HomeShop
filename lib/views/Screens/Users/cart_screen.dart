@@ -65,12 +65,6 @@ class CartScreen extends StatelessWidget {
                                                 .cartData[index].oneItemPrice,
                                             totalPrice: controller
                                                 .cartData[index].productPrice,
-                                            offerPrice: controller
-                                                .cartData[index]
-                                                .oneItemOfferPrice,
-                                            totalOfferPrice: controller
-                                                .cartData[index]
-                                                .productOfferPrice,
                                             prodTitle: controller
                                                 .cartData[index].productName,
                                             prodQuantity: controller
@@ -116,53 +110,6 @@ class CartScreen extends StatelessWidget {
                                           padding: const EdgeInsets.all(10),
                                           child: Column(
                                             children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    "subTotal".tr,
-                                                    style: AppTheme.lightStyle(
-                                                        color: Colors.black,
-                                                        size: 18),
-                                                  ),
-                                                  Text(
-                                                    "${controller.constTotal!.toStringAsFixed(2)} ${"JD".tr}"
-                                                        .tr,
-                                                    style: AppTheme.lightStyle(
-                                                        color: Colors.black,
-                                                        size: 17),
-                                                  ),
-                                                ],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        "total".tr,
-                                                        style:
-                                                            AppTheme.lightStyle(
-                                                                color: Colors
-                                                                    .black,
-                                                                size: 18),
-                                                      ),
-                                                      Text(
-                                                        "${controller.subTotalLabel!.toStringAsFixed(2)} ${"JD".tr}",
-                                                        style:
-                                                            AppTheme.lightStyle(
-                                                                color: Colors
-                                                                    .black,
-                                                                size: 18),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
                                               const Divider(
                                                 height: 20,
                                                 thickness: 2,

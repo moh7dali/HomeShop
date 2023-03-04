@@ -10,4 +10,8 @@ class AssetsConstant {
   static const String hoodie = '${directoryImagesPath}hoodie.gif';
   static const String gamer = '${directoryImagesPath}gamer.gif';
   static const String candles = '${directoryImagesPath}candles.gif';
+  static const String home = '${directoryImagesPath}home.png';
+  static const String profile = '${directoryImagesPath}profile.png';
+  static const String basketIcon =
+      '${directoryImagesPath}basket_white_icon.png';
 }

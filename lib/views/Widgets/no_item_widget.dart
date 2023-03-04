@@ -23,7 +23,6 @@ class NoItemWidget extends StatelessWidget {
             child: Image.asset(
               '$imgUrl',
               width: imgSize,
-              color: containerBackgroun,
             ),
           ),
         ),

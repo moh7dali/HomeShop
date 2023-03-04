@@ -10,20 +10,16 @@ class CartItemWidget extends StatelessWidget {
     this.id,
     this.prodTitle,
     this.itemPrice,
-    this.offerPrice,
     this.totalPrice,
-    this.totalOfferPrice,
     this.imgUrl,
     this.prodQuantity,
   });
-  int? id;
+  String? id;
   String? prodTitle;
   String? imgUrl;
   int? prodQuantity;
   int? itemPrice;
-  int? offerPrice;
   int? totalPrice;
-  int? totalOfferPrice;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartViewModel>(
@@ -66,29 +62,9 @@ class CartItemWidget extends StatelessWidget {
                             Text('oneItemPrice'.tr,
                                 style: AppTheme.lightStyle(
                                     color: Colors.black, size: 16)),
-                            offerPrice == 0 && offerPrice != null
-                                ? Text('${itemPrice ?? 0.toStringAsFixed(2)}',
-                                    style: AppTheme.boldStyle(
-                                        color: Colors.black, size: 15))
-                                : Row(
-                                    children: [
-                                      Text(
-                                        '${itemPrice ?? 0.toStringAsFixed(2)} JD',
-                                        style: AppTheme.boldStyle(
-                                          color: containerBackgroun,
-                                          size: 15,
-                                        ).copyWith(
-                                            decoration: offerPrice! > 0
-                                                ? TextDecoration.lineThrough
-                                                : TextDecoration.none),
-                                      ),
-                                      SizedBox(width: Get.width * .02),
-                                      Text(
-                                          '${offerPrice ?? 0.toStringAsFixed(2)} JD',
-                                          style: AppTheme.boldStyle(
-                                              color: Colors.red, size: 15)),
-                                    ],
-                                  )
+                            Text('${itemPrice ?? 0.toStringAsFixed(2)}',
+                                style: AppTheme.boldStyle(
+                                    color: Colors.black, size: 15))
                           ]),
                       Divider(
                         height: 20,
@@ -117,16 +93,9 @@ class CartItemWidget extends StatelessWidget {
                             Text('totalPrice'.tr,
                                 style: AppTheme.lightStyle(
                                     color: Colors.black, size: 16)),
-                            totalOfferPrice == 0 || totalOfferPrice == null
-                                ? Text(
-                                    '${totalPrice ?? 0.toStringAsFixed(2)}'.tr,
-                                    style: AppTheme.lightStyle(
-                                        color: Colors.black, size: 16))
-                                : Text(
-                                    '${totalOfferPrice ?? 0.toStringAsFixed(2)}'
-                                        .tr,
-                                    style: AppTheme.lightStyle(
-                                        color: Colors.black, size: 16))
+                            Text('${totalPrice ?? 0.toStringAsFixed(2)}'.tr,
+                                style: AppTheme.lightStyle(
+                                    color: Colors.black, size: 16))
                           ]),
                       SizedBox(height: Get.height * 0.01),
                       Row(

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/utils/assets_constant.dart';
@@ -5,19 +6,26 @@ import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:homeShop/views/Screens/Users/product_details_screen.dart';
+import 'package:flutter/cupertino.dart';
 
 class ProductCardWidget extends StatelessWidget {
   ProductCardWidget(
       {this.productID,
       this.productName,
+      this.productNameAr,
       this.productPrice,
       this.productImgUrl,
-      this.productOfferPrice});
-  int? productID;
+      this.isShop,
+      this.delete,
+      this.edit});
+  String? productID;
   String? productImgUrl;
   String? productName;
-  int? productOfferPrice;
+  String? productNameAr;
   int? productPrice;
+  bool? isShop;
+  Function? edit;
+  Function? delete;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +35,106 @@ class ProductCardWidget extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          Get.to(ProductDetails(productId: productID));
+          isShop!
+              ? Get.dialog(
+                  CupertinoAlertDialog(
+                    title: Text(
+                      productName.toString().toUpperCase(),
+                      style: const TextStyle(
+                        fontSize: titleSize,
+                      ),
+                    ),
+                    content: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: containerBackgroun,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "title in englis",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: subTitleSize,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            productName!,
+                            style: const TextStyle(
+                              fontSize: ParagraphSize,
+                            ),
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: containerBackgroun,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "price",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: subTitleSize,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            productPrice!.toString(),
+                            style: const TextStyle(
+                              fontSize: ParagraphSize,
+                            ),
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                      ],
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                          onPressed: () {
+                            edit!();
+                          },
+                          child: const Text(
+                            'Edit',
+                            style: TextStyle(
+                              fontSize: subTitleSize,
+                              color: Colors.black,
+                            ),
+                          )),
+                      TextButton(
+                        onPressed: () async {
+                          delete!();
+                        },
+                        child: const Text(
+                          'Delete',
+                          style: TextStyle(
+                            fontSize: subTitleSize,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : Get.to(ProductDetails(productId: productID));
         },
         child: Padding(
           padding: const EdgeInsets.all(8),
@@ -47,27 +154,10 @@ class ProductCardWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           FittedBox(
-                            child: Text(
-                              '${productPrice}JD',
-                              style: AppTheme.lightStyle(
-                                      color: containerBackgroun, size: 18)
-                                  .copyWith(
-                                      decoration: productOfferPrice! > 0
-                                          ? TextDecoration.lineThrough
-                                          : TextDecoration.none),
-                            ),
+                            child: Text('${productPrice}JD',
+                                style: AppTheme.lightStyle(
+                                    color: containerBackgroun, size: 18)),
                           ),
-                          if (productOfferPrice! > 0)
-                            FittedBox(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  '${productOfferPrice}JD',
-                                  style: AppTheme.lightStyle(
-                                      color: Colors.red, size: 18),
-                                ),
-                              ),
-                            ),
                         ],
                       ),
                     ]),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -111,22 +110,249 @@ class _personalInfoState extends State<personalInfo> {
     }
 
     return Scaffold(
-      backgroundColor: backgroud,
-      appBar: AppBar(
         backgroundColor: backgroud,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Ionicons.arrow_back,
-            color: Colors.black,
-            size: 35,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 60,
+                  backgroundColor: Colors.grey,
+                  backgroundImage: NetworkImage(img_url),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Center(
+                  child: Text(
+                    username,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: titleSize,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Center(
+                  child: Text(
+                    bio,
+                    style: const TextStyle(
+                      fontSize: subTitleSize,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: const Icon(
+                          Ionicons.call_sharp,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          size: 25,
+                        ),
+                        onPressed: () => launch("tel://$phone"),
+                      ),
+                      const Text(
+                        "|",
+                        style: TextStyle(
+                          color: Color.fromARGB(158, 204, 203, 203),
+                          fontSize: 40,
+                        ),
+                      ),
+                      Icon_Url(
+                        icon: const Icon(FontAwesomeIcons.linkedin),
+                        url: LinkedIn,
+                      ),
+                      const Text(
+                        "|",
+                        style: TextStyle(
+                          color: Color.fromARGB(158, 204, 203, 203),
+                          fontSize: 40,
+                        ),
+                      ),
+                      Icon_Url(
+                        icon: const Icon(FontAwesomeIcons.github),
+                        url: github,
+                      ),
+                      const Text(
+                        "|",
+                        style: TextStyle(
+                          color: Color.fromARGB(158, 204, 203, 203),
+                          fontSize: 40,
+                        ),
+                      ),
+                      Icon_Url(
+                        icon: const Icon(Ionicons.mail),
+                        url: "mailto:${email}",
+                      ),
+                      const Text(
+                        "|",
+                        style: TextStyle(
+                          color: Color.fromARGB(158, 204, 203, 203),
+                          fontSize: 40,
+                        ),
+                      ),
+                      Icon_Url(
+                        icon: const Icon(Ionicons.document_sharp),
+                        url: cv,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                      color: containerBackgroun,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      20,
+                    ),
+                  ),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "TOP SKILLS",
+                        style: TextStyle(
+                          color: containerBackgroun,
+                          fontSize: subTitleSize,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (int i = 0; i < Skills.length; i++,)
+                          Container(
+                            margin: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: containerBackgroun,
+                            ),
+                            child: Text(
+                              Skills[i].toString(),
+                              style: const TextStyle(
+                                fontSize: subTitleSize,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                      color: containerBackgroun,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "Address",
+                        style: TextStyle(
+                          color: containerBackgroun,
+                          fontSize: subTitleSize,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 16, right: 16, top: 16, bottom: 5),
+                  child: Center(
+                    child: Text(
+                      address,
+                      style: const TextStyle(fontSize: subTitleSize),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: Visibility(
+                    visible: visibilty,
+                    child: TextButton(
+                      onPressed: () async {
+                        await getlocation();
+                        await FirebaseFirestore.instance
+                            .collection('Users')
+                            .doc(FirebaseAuth.instance.currentUser!.uid)
+                            .update({
+                          'address': Location1,
+                          'location': [latitude, longtude],
+                        });
+                      },
+                      child: const CircleAvatar(
+                        backgroundColor: iconColor,
+                        child: Icon(
+                          Ionicons.location_sharp,
+                          color: buttonColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                      color: containerBackgroun,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "Major",
+                        style: TextStyle(
+                          color: containerBackgroun,
+                          fontSize: subTitleSize,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Center(
+                    child: Text(
+                      major,
+                      style: const TextStyle(fontSize: subTitleSize),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        actions: [
-          Visibility(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: containerBackgroun,
+          onPressed: () {},
+          child: Visibility(
             visible: visibilty,
             child: IconButton(
               onPressed: () {
@@ -149,277 +375,9 @@ class _personalInfoState extends State<personalInfo> {
                 Icons.edit,
                 size: 30,
               ),
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 60,
-                backgroundColor: Colors.grey,
-                backgroundImage: NetworkImage(img_url),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                child: Text(
-                  username,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: titleSize,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Center(
-                child: Text(
-                  bio,
-                  style: const TextStyle(
-                    fontSize: subTitleSize,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      icon: const Icon(
-                        Ionicons.call_sharp,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        size: 25,
-                      ),
-                      onPressed: () => launch("tel://$phone"),
-                    ),
-                    const Text(
-                      "|",
-                      style: TextStyle(
-                        color: Color.fromARGB(158, 204, 203, 203),
-                        fontSize: 40,
-                      ),
-                    ),
-                    Icon_Url(
-                      icon: const Icon(FontAwesomeIcons.linkedin),
-                      url: LinkedIn,
-                    ),
-                    const Text(
-                      "|",
-                      style: TextStyle(
-                        color: Color.fromARGB(158, 204, 203, 203),
-                        fontSize: 40,
-                      ),
-                    ),
-                    Icon_Url(
-                      icon: const Icon(FontAwesomeIcons.github),
-                      url: github,
-                    ),
-                    const Text(
-                      "|",
-                      style: TextStyle(
-                        color: Color.fromARGB(158, 204, 203, 203),
-                        fontSize: 40,
-                      ),
-                    ),
-                    Icon_Url(
-                      icon: const Icon(Ionicons.mail),
-                      url: "mailto:${email}",
-                    ),
-                    const Text(
-                      "|",
-                      style: TextStyle(
-                        color: Color.fromARGB(158, 204, 203, 203),
-                        fontSize: 40,
-                      ),
-                    ),
-                    Icon_Url(
-                      icon: const Icon(Ionicons.document_sharp),
-                      url: cv,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                    color: containerBackgroun,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                    20,
-                  ),
-                ),
-                child: const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "TOP SKILLS",
-                      style: TextStyle(
-                        color: containerBackgroun,
-                        fontSize: subTitleSize,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      for (int i = 0; i < Skills.length; i++,)
-                        Container(
-                          margin: const EdgeInsets.all(10),
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: containerBackgroun,
-                          ),
-                          child: Text(
-                            Skills[i].toString(),
-                            style: const TextStyle(
-                              fontSize: subTitleSize,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                    color: containerBackgroun,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "Address",
-                      style: TextStyle(
-                        color: containerBackgroun,
-                        fontSize: subTitleSize,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 16, right: 16, top: 16, bottom: 5),
-                child: Center(
-                  child: Text(
-                    address,
-                    style: const TextStyle(fontSize: subTitleSize),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Visibility(
-                  visible: visibilty,
-                  child: TextButton(
-                    onPressed: () async {
-                      await getlocation();
-                      await FirebaseFirestore.instance
-                          .collection('Users')
-                          .doc(FirebaseAuth.instance.currentUser!.uid)
-                          .update({
-                        'address': Location1,
-                        'location': [latitude, longtude],
-                      });
-                    },
-                    child: const CircleAvatar(
-                      backgroundColor: iconColor,
-                      child: Icon(
-                        Ionicons.location_sharp,
-                        color: buttonColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                    color: containerBackgroun,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "Major",
-                      style: TextStyle(
-                        color: containerBackgroun,
-                        fontSize: subTitleSize,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Center(
-                  child: Text(
-                    major,
-                    style: const TextStyle(fontSize: subTitleSize),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: Visibility(
-        visible: visibilty,
-        child: SpeedDial(
-            buttonSize: Size(70, 70),
-            spaceBetweenChildren: 15,
-            child: Icon(
-              Ionicons.menu,
-              size: 30,
-            ),
-            backgroundColor: buttonColor,
-            children: [
-              SpeedDialChild(
-                child: Icon(Icons.logout),
-                label: 'Logout',
-                onTap: () async {
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.popAndPushNamed(context, "Login");
-                },
-              ),
-              SpeedDialChild(
-                child: Icon(Ionicons.home),
-                label: 'Home',
-                onTap: () {
-                  Navigator.popAndPushNamed(context, "Home");
-                },
-              ),
-            ]),
-      ),
-    );
+        ));
   }
 }

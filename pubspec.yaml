@@ -62,7 +62,7 @@ dependencies:
   file_picker: ^5.2.2
   cached_network_image: ^3.2.3
   shared_preferences: ^2.0.18
-
+  badges: ^3.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

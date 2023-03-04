@@ -3,12 +3,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/model/add_to_cart_model.dart';
 import 'package:homeShop/utils/shared_preference.dart';
+import 'package:homeShop/viewmodel/cart_icon_viewmodel.dart';
 
 class ProductDetailsViewModel extends GetxController {
   ProductDetailsViewModel({
     required this.productId,
   });
-  int productId;
+  String productId;
   Map<String, dynamic> data = {};
   bool isLoad = true;
   bool? hasOfferdPrice = false;
@@ -22,23 +23,16 @@ class ProductDetailsViewModel extends GetxController {
     super.onInit();
   }
 
-  Future getProudectDetails(int productId) async {
+  Future getProudectDetails(String productId) async {
     final db = FirebaseFirestore.instance;
     final docRef = await db.collection("products").get().then((value) {
       value.docs.forEach((element) {
         if (element.data()["productID"] == productId) {
           data.addAll(element.data());
-          if (element.data()['productOfferPrice'] > 0) {
-            hasOfferdPrice = true;
-            price = data['productPrice'];
-            offerPrice = data['productOfferPrice'];
-            fixedPrice = offerPrice;
-          } else {
-            price = data['productPrice'];
-            hasOfferdPrice = false;
-            offerPrice = 0;
-            fixedPrice = price;
-          }
+          price = data['productPrice'];
+          hasOfferdPrice = false;
+          offerPrice = 0;
+          fixedPrice = price;
         }
         update();
       });
@@ -74,10 +68,8 @@ class ProductDetailsViewModel extends GetxController {
         productName: data['productName'],
         productImgUrl: data['productImgUrl'],
         productPrice: price,
-        productOfferPrice: fixedPrice,
         quantity: count,
         oneItemPrice: data['productPrice'],
-        oneItemOfferPrice: data['productOfferPrice'],
         productCategory: data['productCategory']);
 
     cartData.forEach((element) {
@@ -99,6 +91,10 @@ class ProductDetailsViewModel extends GetxController {
     }
     update();
     shp.saveCart(cartData);
+    if (Get.isRegistered<CartIconViewModel>()) {
+      CartIconViewModel cartItemViewModel = Get.find<CartIconViewModel>();
+      await cartItemViewModel.getCounter();
+    }
     Get.back();
   }
 }
