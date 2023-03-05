@@ -227,16 +227,7 @@ class _Sign_upState extends State<Sign_up> {
                                 'Email': emailController.text,
                                 'phone': phoneController.text,
                                 'img': "",
-                                'address': "",
-                                'age': "",
-                                'major': "",
-                                'bio': "",
                                 'rules': "User",
-                                'Githuburl': "",
-                                'linkedinurl': "",
-                                'skills': [],
-                                'cv': "",
-                                'location': [],
                               }).then((value) => print(
                                       "user Added +++++++++++++++++++++"));
                               print(
@@ -327,13 +318,11 @@ class _Sign_upState extends State<Sign_up> {
                           SizedBox(
                             width: 15,
                           ),
-                          Text(
-                            "Continue with Google",
-                            style: GoogleFonts.montserrat(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: buttonColor)
-                          ),
+                          Text("Continue with Google",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: buttonColor)),
                         ],
                       ),
                     ),

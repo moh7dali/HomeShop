@@ -164,12 +164,12 @@ class ProductCardWidget extends StatelessWidget {
               ),
               Expanded(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(10),
                       bottomRight: Radius.circular(10)),
                   child: CachedNetworkImage(
                     imageUrl: productImgUrl ?? '',
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.fitHeight,
                     width: Get.width,
                     height: Get.height * .15,
                     placeholder: (w, e) => Image.asset(

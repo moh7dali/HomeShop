@@ -225,12 +225,10 @@ class _Company_Sign_upState extends State<Company_Sign_up> {
                                   'Email': emailController.text,
                                   'phone': phoneController.text,
                                   'img': "",
-                                  'address': "",
-                                  'rules': "company",
-                                  'linkedinurl': "",
-                                  'facebookurl': "",
-                                  'Info': "",
-                                  'location': [],
+                                  'rules': "shop",
+                                  'whatsappUrl': "",
+                                  'facebookUrl': "",
+                                  'instgramUrl': ""
                                 });
 
                                 Navigator.popAndPushNamed(context, "Login");

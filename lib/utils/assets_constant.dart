@@ -12,6 +12,11 @@ class AssetsConstant {
   static const String candles = '${directoryImagesPath}candles.gif';
   static const String home = '${directoryImagesPath}home.png';
   static const String profile = '${directoryImagesPath}profile.png';
+  static const String edit = '${directoryImagesPath}edit.gif';
+  static const String pallete = '${directoryImagesPath}pallete.gif';
+  static const String heart = '${directoryImagesPath}heart.gif';
+  static const String translation = '${directoryImagesPath}translation.gif';
+  static const String logout = '${directoryImagesPath}logout.gif';
   static const String basketIcon =
       '${directoryImagesPath}basket_white_icon.png';
 }

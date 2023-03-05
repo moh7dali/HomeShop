@@ -24,7 +24,7 @@ int selectedIndex = 0;
 List<Widget> screen = [
   MainScreen(),
   personalInfo(
-    user_id: FirebaseAuth.instance.currentUser!.uid,
+    userId: FirebaseAuth.instance.currentUser!.uid,
   )
 ];
 
@@ -58,7 +58,6 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      drawer: Drawerwidget(),
       body: screen.elementAt(selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

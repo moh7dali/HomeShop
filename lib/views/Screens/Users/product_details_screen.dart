@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/main.dart';
@@ -50,11 +51,18 @@ class ProductDetails extends StatelessWidget {
                                                       AssetsConstant.logo2)),
                                         ));
                               },
-                              child: Image.network(
-                                '${controller.data['productImgUrl']}',
-                                errorBuilder: (context, error, stackTrace) =>
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    controller.data['productImgUrl'] ?? '',
+                                fit: BoxFit.cover,
+                                width: Get.width * .4,
+                                //height: Get.height * .5,
+                                placeholder: (w, e) => Image.asset(
+                                  AssetsConstant.loading,
+                                  fit: BoxFit.cover,
+                                ),
+                                errorWidget: (c, e, s) =>
                                     Image.asset(AssetsConstant.logo2),
-                                width: Get.width * .5,
                               ),
                             ),
                             Text(

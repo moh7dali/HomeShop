@@ -17,7 +17,6 @@ class HomeCompany extends StatelessWidget {
       init: HomeCompanyViewModel(),
       builder: (controller) {
         return Scaffold(
-            drawer: const Drawerwidget(),
             appBar: AppBar(
               iconTheme: IconThemeData(color: containerBackgroun),
               backgroundColor: Colors.white,

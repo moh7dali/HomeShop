@@ -37,7 +37,7 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
       if (type != null) {
         if (type == "User") {
           Get.off(Home());
-        } else if (type == "company") {
+        } else if (type == "shop") {
           Get.off(HomeCompany());
         }
       } else {

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/utils/assets_constant.dart';
@@ -31,17 +32,27 @@ class CartItemWidget extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           children: [
-            SizedBox(height: Get.height * .01),
             Row(
               children: [
-                Image.network(
-                  '$imgUrl',
-                  width: Get.width * .25,
-                  errorBuilder: (context, error, stackTrace) => Image.asset(
-                    AssetsConstant.logo2,
-                    width: Get.width * .25,
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10)),
+                    child: CachedNetworkImage(
+                      imageUrl: imgUrl ?? '',
+                      fit: BoxFit.fitHeight,
+                      width: Get.width * .25,
+                      placeholder: (w, e) => Image.asset(
+                        AssetsConstant.loading,
+                        fit: BoxFit.cover,
+                      ),
+                      errorWidget: (c, e, s) =>
+                          Image.asset(AssetsConstant.logo2),
+                    ),
                   ),
                 ),
+                SizedBox(width: 5),
                 SizedBox(
                   width: Get.width * .5,
                   child: Column(
@@ -156,14 +167,6 @@ class CartItemWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     controller.deleteOneItemFromCart(id!);
-                    // Helper().actionDialog(
-                    //     confirm: () {
-                    //       controller.deleteOneItemFromCart(id!);
-                    //       Get.back();
-                    //     },
-                    //     cancel: () => Get.back(),
-                    //     title: prodTitle,
-                    //     body: "deleteConfirm".tr);
                   },
                   child: Container(
                       decoration: BoxDecoration(
