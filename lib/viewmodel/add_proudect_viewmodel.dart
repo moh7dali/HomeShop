@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homeShop/viewmodel/home_company_viewmodel.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
@@ -43,6 +44,18 @@ class AddProductViewModel extends GetxController {
       print("id is ${productId}");
     }
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    data = {};
+    isLoad = true;
+    englisNameController.clear();
+    arabicNameController.clear();
+    priceController.clear();
+    pickedimg = null;
+    selectedProductCategory = null;
+    super.onClose();
   }
 
   final ImagePicker _picker = ImagePicker();
@@ -125,7 +138,14 @@ class AddProductViewModel extends GetxController {
           "shopName": shopName,
           'date': date,
         });
-        Get.to(HomeCompany());
+        if (Get.isRegistered<HomeCompanyViewModel>()) {
+          HomeCompanyViewModel homeCompanyViewModel =
+              Get.find<HomeCompanyViewModel>();
+          await homeCompanyViewModel.init();
+        }
+        Get.back();
+        onClose();
+        update();
       } else
         Helper().errorSnackBar("Select Proudect Categorie or Image");
     } else {
@@ -164,6 +184,15 @@ class AddProductViewModel extends GetxController {
         "shopName": shopName,
         'date': date,
       });
+      if (Get.isRegistered<HomeCompanyViewModel>()) {
+        HomeCompanyViewModel homeCompanyViewModel =
+            Get.find<HomeCompanyViewModel>();
+        await homeCompanyViewModel.init();
+      }
+      Get.back();
+      Get.back();
+      onClose();
+      update();
     }
   }
 }

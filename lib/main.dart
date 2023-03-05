@@ -6,9 +6,6 @@ import 'package:homeShop/utils/translation/translate.dart';
 import 'package:homeShop/views/Screens/Authentication/Company_signup.dart';
 import 'package:homeShop/views/Screens/Authentication/Login.dart';
 import 'package:homeShop/views/Screens/Authentication/signup.dart';
-import 'package:homeShop/views/Screens/Company/AddNewJob.dart';
-import 'package:homeShop/views/Screens/Company/AddNewTraining.dart';
-import 'package:homeShop/views/Screens/Company/HomeCompany.dart';
 import 'package:homeShop/views/Screens/Users/Home.dart';
 import 'package:homeShop/views/Screens/Welcome.dart';
 import 'package:homeShop/views/Screens/start.dart';
@@ -37,9 +34,6 @@ Future<void> main() async {
       "Start": (context) => const Start_page(),
       "forgetpassword": (context) => const ForgetPassword(),
       "welcome": (context) => Welcome(),
-      "companyHome": (context) => CompanyHome(),
-      "addNewJob": (context) => AddNewJob(),
-      "addNewTraining": (context) => AddNewTraining(),
     },
     home: const MyApp(),
   ));

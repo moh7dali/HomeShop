@@ -89,7 +89,9 @@ class HomeCompany extends StatelessWidget {
               onPressed: () {},
               child: IconButton(
                 onPressed: () {
-                  Get.to(AddProductScreen());
+                  Get.to(AddProductScreen(
+                    productId: null,
+                  ));
                 },
                 icon: const Icon(
                   Icons.add,

@@ -126,7 +126,7 @@ class AddProductScreen extends StatelessWidget {
                         await controller.addProduct(productId: productId);
                       },
                       child: Text(
-                        "Add",
+                        productId != null ? "Edit" : "Add",
                         style: GoogleFonts.montserrat(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
