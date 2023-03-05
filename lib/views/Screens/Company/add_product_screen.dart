@@ -25,7 +25,9 @@ class AddProductScreen extends StatelessWidget {
                       width: Get.width,
                       height: Get.height * .3,
                       child: controller.pickedimg == null
-                          ? Image.asset(AssetsConstant.logo)
+                          ? controller.imgUrl == null
+                              ? Image.asset(AssetsConstant.logo)
+                              : Image.network(controller.imgUrl!)
                           : Image.file(
                               controller.pickedimg!,
                               filterQuality: FilterQuality.high,

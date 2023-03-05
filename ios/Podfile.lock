@@ -704,6 +704,9 @@ PODS:
     - FirebaseCoreExtension (~> 10.0)
     - GTMSessionFetcher/Core (~> 2.1)
   - Flutter (1.0.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - geocoding (1.0.5):
     - Flutter
   - geolocator_apple (1.2.0):
@@ -805,6 +808,12 @@ PODS:
   - SDWebImage (5.15.4):
     - SDWebImage/Core (= 5.15.4)
   - SDWebImage/Core (5.15.4)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - sqflite (0.0.2):
+    - Flutter
+    - FMDB (>= 2.7.5)
   - SwiftyGif (5.4.4)
   - url_launcher_ios (0.0.1):
     - Flutter
@@ -823,6 +832,8 @@ DEPENDENCIES:
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
 
@@ -842,6 +853,7 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseFirestore
     - FirebaseStorage
+    - FMDB
     - GoogleSignIn
     - GoogleUtilities
     - "gRPC-C++"
@@ -878,6 +890,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   path_provider_ios:
     :path: ".symlinks/plugins/path_provider_ios/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
   video_player_avfoundation:
@@ -904,6 +920,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 5007583f3db2129de8e87f18ee63f4c86f07e7a3
   FirebaseStorage: 8b0b0630e11b9f3e4a479a26cfccb70ec790ec50
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   geocoding: 32cfcdb16d38d907caaba65e2e42ad10d38bee58
   geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
   google_sign_in_ios: 4f85eb9f937450765c8573bb85fd8cd6a5af675c
@@ -920,6 +937,8 @@ SPEC CHECKSUMS:
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SDWebImage: 1c39de67663e5eebb2f41324d5d580eeea12dd4c
+  shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
+  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
   video_player_avfoundation: e489aac24ef5cf7af82702979ed16f2a5ef84cff
