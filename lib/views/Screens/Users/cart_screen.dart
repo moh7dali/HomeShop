@@ -28,7 +28,7 @@ class CartScreen extends StatelessWidget {
                 ),
                 body: controller.cartData.isEmpty
                     ? NoItemWidget(
-                        imgUrl: AssetsConstant.logo2,
+                        imgUrl: AssetsConstant.basketIcon,
                         subTitle: "addCrt".tr,
                         title: "emptyCart".tr,
                         imgSize: Get.width * .25,

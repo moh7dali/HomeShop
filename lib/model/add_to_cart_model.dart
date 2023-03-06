@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:homeShop/main.dart';
+
 List<CartItem> cartFromJson(String str) =>
     List<CartItem>.from(json.decode(str).map((x) => CartItem.fromJson(x)));
 
@@ -29,7 +31,8 @@ class CartItem {
     if (json["productID"] is String) {
       productId = json["productID"];
     }
-    if (json["productName"] is String) {
+   
+       if (json["productName"] is String) {
       productName = json["productName"];
     }
     if (json["productImgUrl"] is String) {

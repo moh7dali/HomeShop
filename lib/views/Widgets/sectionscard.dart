@@ -24,7 +24,7 @@ class SectionsCard extends StatelessWidget {
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: SizedBox(
-          height: 250,
+          height: 260,
           width: 150,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

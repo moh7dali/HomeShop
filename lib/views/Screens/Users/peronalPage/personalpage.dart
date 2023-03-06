@@ -41,20 +41,44 @@ class personalInfo extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "UserName : ${controller.username}",
-                                  style:
-                                      AppTheme.lightStyle(color: Colors.white),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "UserName".tr,
+                                      style:
+                                          AppTheme.lightStyle(color: Colors.white),
+                                    ),Text(
+                                      controller.username,
+                                      style:
+                                          AppTheme.lightStyle(color: Colors.white),
+                                    )
+                                  ],
                                 ),
-                                Text(
-                                  "Email : ${controller.email}",
-                                  style:
-                                      AppTheme.lightStyle(color: Colors.white),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Email".tr,
+                                      style:
+                                          AppTheme.lightStyle(color: Colors.white),
+                                    ), Text(
+                                      controller.email,
+                                      style:
+                                          AppTheme.lightStyle(color: Colors.white),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  "Phone : ${controller.phone}",
-                                  style:
-                                      AppTheme.lightStyle(color: Colors.white),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Phone".tr,
+                                      style:
+                                          AppTheme.lightStyle(color: Colors.white),
+                                    ),Text(
+                                      controller.phone,
+                                      style:
+                                          AppTheme.lightStyle(color: Colors.white),
+                                    ),
+                                  ],
                                 ),
                                 Visibility(
                                   visible: controller.visibilty,
@@ -80,7 +104,7 @@ class personalInfo extends StatelessWidget {
                                         ),
                                         SizedBox(width: Get.width * .1),
                                         Text(
-                                          "Edit",
+                                          "Edit".tr,
                                           style: AppTheme.lightStyle(
                                               color: containerBackgroun),
                                         ),
@@ -98,7 +122,7 @@ class personalInfo extends StatelessWidget {
                         child: ListTile(
                             onTap: () {},
                             title: Text(
-                              "favorite product",
+                              "favoriteproduct".tr,
                               style: AppTheme.boldStyle(
                                   color: containerBackgroun, size: 18),
                             ),
@@ -110,7 +134,7 @@ class personalInfo extends StatelessWidget {
                         child: ListTile(
                             onTap: () {},
                             title: Text(
-                              "my Order",
+                              "myOrder".tr,
                               style: AppTheme.boldStyle(
                                   color: containerBackgroun, size: 18),
                             ),
@@ -124,7 +148,7 @@ class personalInfo extends StatelessWidget {
                               Get.to(const LanguageScreen());
                             },
                             title: Text(
-                              "Change Language",
+                              "ChangeLanguage".tr,
                               style: AppTheme.boldStyle(
                                   color: containerBackgroun, size: 18),
                             ),
@@ -139,7 +163,7 @@ class personalInfo extends StatelessWidget {
                               Navigator.popAndPushNamed(context, "Login");
                             },
                             title: Text(
-                              "Log Out",
+                              "LogOut".tr,
                               style: AppTheme.boldStyle(
                                   color: containerBackgroun, size: 18),
                             ),

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homeShop/main.dart';
 import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
@@ -59,9 +60,16 @@ class CartItemWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${prodTitle ?? " "}'.tr,
-                          style: AppTheme.boldStyle(
-                              color: Colors.black, size: 16)),
+                      Row(
+                        children: [
+                          Text('ProdactTitle'.tr,
+                              style: AppTheme.boldStyle(
+                                  color: Colors.black, size: 16)),
+                                  Text('${prodTitle.toString()}'.tr,
+                                style: AppTheme.lightStyle(
+                                    color: Colors.black, size: 16))
+                        ],
+                      ),
                       Divider(
                         height: 20,
                         thickness: 2,

@@ -1,1 +1,26 @@
-const Map<String, String> en = {'food': 'Foodf f f f '};
+const Map<String, String> en = {
+  'food': 'Food',
+  "homeAccessories": "Home Accessories",
+  "ElectronicAccessories": "Electronic Accessories",
+  "LetsMakeaGreatDeal": "Let's Make \n a Great Deal",
+  'UserName':'UserName :',
+  'Email':'Email:',
+  "Phone":"Phone:",
+  "Edit":"Edit",
+  "favoriteproduct":"favorite product",
+   "myOrder": "my Orders",
+   "ChangeLanguage":"Change Language",
+     "LogOut" : "Log Out",
+     "cart":"Cart",
+     "emptyCart":"Empty Cart",
+      "addCrt":"Add to Cart",
+      "cartItems":"Cart Items",
+      "specialInstructions":"Special Instructions",
+      "finalAmount":"finalAmount",
+      'totalPrice':'totalPrice',
+      'quantity':'Quantity',
+      "oneItemPrice":"One Item Price",
+      'ProdactTitle':'Prodac TTitle',
+      "OrderNow":"Order Now",
+
+};

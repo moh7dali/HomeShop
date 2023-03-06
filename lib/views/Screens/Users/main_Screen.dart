@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               Column(
                 children: [
-                  Text("Let's Make a\n Great Deal",
+                  Text("LetsMakeaGreatDeal".tr,
                       style: GoogleFonts.nunito(
                         fontSize: titleSize,
                       )),
@@ -53,7 +53,7 @@ class _MainScreenState extends State<MainScreen> {
                         categoriyRule: "homeAccessories",
                       ));
                     },
-                    CardTitle: "Home Accessories",
+                    CardTitle: "homeAccessories".tr,
                     CardSubTitle: "",
                     ImageName: AssetsConstant.candles,
                   ),
@@ -73,7 +73,7 @@ class _MainScreenState extends State<MainScreen> {
                         categoriyRule: "Clothes",
                       ));
                     },
-                    CardTitle: "Clothes",
+                    CardTitle: "Clothes".tr,
                     CardSubTitle: "",
                     ImageName: AssetsConstant.hoodie,
                     width: Get.width * .5,
@@ -87,7 +87,7 @@ class _MainScreenState extends State<MainScreen> {
                         categoriyRule: "electronicAccessories",
                       ));
                     },
-                    CardTitle: "Electronic Accessories",
+                    CardTitle: "ElectronicAccessories".tr,
                     CardSubTitle: "",
                     ImageName: AssetsConstant.gamer,
                   ),
