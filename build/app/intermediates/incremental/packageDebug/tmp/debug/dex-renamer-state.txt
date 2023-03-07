@@ -1,4 +1,4 @@
-#Mon Mar 06 16:18:46 EET 2023
+#Tue Mar 07 20:03:27 EET 2023
 base.2=C\:\\Users\\96279\\Desktop\\111\\homeshop\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
 path.2=classes3.dex
 base.1=C\:\\Users\\96279\\Desktop\\111\\homeshop\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex

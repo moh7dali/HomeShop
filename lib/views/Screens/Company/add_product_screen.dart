@@ -39,7 +39,7 @@ class AddProductScreen extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Text("Choose image From ?",
+                        Text("ChooseimageFrom?".tr,
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                             )),
@@ -68,8 +68,8 @@ class AddProductScreen extends StatelessWidget {
                     TextFormField(
                       decoration: const InputDecoration(
                           prefixIcon: Icon(Ionicons.text_outline),
-                          labelText: 'prouduct name in english',
-                          hintText: 'prouduct name in english',
+                          labelText: 'prouductnameinenglish',
+                          hintText: 'prouductnameinenglish',
                           border: OutlineInputBorder()),
                       controller: controller.englisNameController,
                     ),
@@ -110,10 +110,10 @@ class AddProductScreen extends StatelessWidget {
                         controller.getProductCategory(value);
                       },
                       value: controller.selectedProductCategory,
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                           prefixIcon: Icon(Ionicons.link_outline),
-                          labelText: 'productCategory',
-                          hintText: 'productCategory',
+                          labelText: 'productCategory'.tr,
+                          hintText: 'productCategory'.tr,
                           border: OutlineInputBorder()),
                     ),
                     const SizedBox(
@@ -128,7 +128,7 @@ class AddProductScreen extends StatelessWidget {
                         await controller.addProduct(productId: productId);
                       },
                       child: Text(
-                        productId != null ? "Edit" : "Add",
+                        productId != null ? "Edit".tr : "Add".tr,
                         style: GoogleFonts.montserrat(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

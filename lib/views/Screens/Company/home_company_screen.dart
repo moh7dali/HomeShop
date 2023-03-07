@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/utils/assets_constant.dart';
@@ -7,6 +8,8 @@ import 'package:homeShop/views/Screens/Company/add_product_screen.dart';
 import 'package:homeShop/views/Widgets/drawer.dart';
 import 'package:homeShop/views/Widgets/no_item_widget.dart';
 import 'package:homeShop/views/Widgets/product_card.dart';
+
+import '../language_screen.dart';
 
 class HomeCompany extends StatelessWidget {
   const HomeCompany({super.key});
@@ -21,9 +24,30 @@ class HomeCompany extends StatelessWidget {
               iconTheme: IconThemeData(color: containerBackgroun),
               backgroundColor: Colors.white,
               elevation: 0,
-              title: Image.asset(AssetsConstant.logo2, width: Get.width * .2),
+              title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [ GestureDetector(
+                  onTap: () async {
+                              await FirebaseAuth.instance.signOut();
+                              Navigator.popAndPushNamed(context, "Login");
+                            },
+                  child:
+                      Image.asset(AssetsConstant.logout, width: Get.width * .2),
+                ),
+                  Image.asset(AssetsConstant.logo2, width: Get.width * .2),
+                 
+                ],
+              ),
               centerTitle: true,
-              actions: [],
+              actions: [
+                GestureDetector(
+                  onTap: () {
+                    Get.to(const LanguageScreen());
+                  },
+                  child: Image.asset(AssetsConstant.translation,
+                      width: Get.width * .2),
+                ),
+                
+              ],
             ),
             body: Column(
               children: [
@@ -42,7 +66,7 @@ class HomeCompany extends StatelessWidget {
                                 children: [
                                   controller.data.length == 0
                                       ? NoItemWidget(
-                                          title: "no proudects",
+                                          title: "noproudects".tr,
                                           subTitle: "",
                                           imgUrl: AssetsConstant.logo2,
                                           imgSize: 100,

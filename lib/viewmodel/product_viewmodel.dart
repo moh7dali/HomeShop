@@ -20,7 +20,7 @@ class ProductViewModel extends GetxController {
     getProduct(categoriyRule);
   }
 
-  Future getProduct(String categoriyRule) async {
+  Future getProduct(String ) async {
     final db = FirebaseFirestore.instance;
     final docRef = await db.collection("products").get().then((value) {
       value.docs.forEach((element) {

@@ -22,5 +22,8 @@ const Map<String, String> ar = {
       'quantity':'عدد القطع',
       "oneItemPrice":"سعر القطعه الواحده",
       'ProdactTitle':'اسم القطعه',
-      "OrderNow":"اطلب الان"
+      "OrderNow":"اطلب الان",
+      "noproudects":"لا يوجد منتجات",
+      "ChooseimageFrom?":"اختر صورة للمنتج",
+      "Add":"اضافه",
 };
