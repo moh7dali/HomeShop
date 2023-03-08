@@ -66,10 +66,10 @@ class AddProductScreen extends StatelessWidget {
                       height: 5,
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                           prefixIcon: Icon(Ionicons.text_outline),
-                          labelText: 'prouductnameinenglish',
-                          hintText: 'prouductnameinenglish',
+                          labelText: 'prouductnameinenglish'.tr,
+                          hintText: 'prouductnameinenglish'.tr,
                           border: OutlineInputBorder()),
                       controller: controller.englisNameController,
                     ),
@@ -77,10 +77,10 @@ class AddProductScreen extends StatelessWidget {
                       height: 20,
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                           prefixIcon: Icon(Ionicons.document_text_outline),
-                          labelText: 'prouduct name in arabic',
-                          hintText: 'prouduct name in arabic',
+                          labelText: 'prouductnameinarabic'.tr,
+                          hintText: 'prouductnameinarabic'.tr,
                           border: OutlineInputBorder()),
                       controller: controller.arabicNameController,
                     ),
@@ -89,10 +89,10 @@ class AddProductScreen extends StatelessWidget {
                     ),
                     TextFormField(
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                           prefixIcon: Icon(Ionicons.calendar_outline),
-                          labelText: 'productPrice',
-                          hintText: 'productPrice',
+                          labelText: 'productPrice'.tr,
+                          hintText: 'productPrice'.tr,
                           border: OutlineInputBorder()),
                       controller: controller.priceController,
                     ),

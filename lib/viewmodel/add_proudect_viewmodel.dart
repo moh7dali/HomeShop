@@ -12,7 +12,7 @@ import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:homeShop/utils/helper.dart';
-import 'package:homeShop/views/Screens/Company/home_company_screen.dart';
+import 'package:homeShop/views/Screens/Company/mainCompany.dart';
 
 class AddProductViewModel extends GetxController {
   AddProductViewModel({

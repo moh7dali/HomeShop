@@ -25,5 +25,9 @@ const Map<String, String> en = {
       "noproudects":"No Proudects",
       "ChooseimageFrom?":"Choose Image From?",
      "Add":"Add",
+     "productPrice":"Product Price",
+     'productCategory':'productCategory',
+     'prouductnameinarabic':'Prouduct Name In Arabic',
+
 
 };

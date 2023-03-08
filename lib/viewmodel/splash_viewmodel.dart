@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:homeShop/views/Screens/Company/home_company_screen.dart';
+import 'package:homeShop/views/Screens/Company/Home_Company.dart';
+import 'package:homeShop/views/Screens/Company/mainCompany.dart';
 import 'package:homeShop/views/Screens/Users/Home.dart';
 import 'package:homeShop/views/Screens/start.dart';
 
@@ -18,7 +19,6 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
       update();
       await getSecondScreen();
     });
-    super.onInit();
   }
 
   String? type;
@@ -38,7 +38,7 @@ class SplashViewModel extends GetxController with WidgetsBindingObserver {
         if (type == "User") {
           Get.offAll(Home());
         } else if (type == "shop") {
-          Get.offAll(HomeCompany());
+          Get.offAll(HOME_Company());
         }
       } else {
         Get.offAll(Start_page());

@@ -26,4 +26,8 @@ const Map<String, String> ar = {
       "noproudects":"لا يوجد منتجات",
       "ChooseimageFrom?":"اختر صورة للمنتج",
       "Add":"اضافه",
+      "productPrice":"سعر المنتج",
+      'productCategory':"فئة العنصر",
+      'prouductnameinarabic':'اسم العنصر باللغه العربيه',
+      'prouductnameinenglish':'اسم العنصر باللغه الانجليزيه',
 };
