@@ -57,6 +57,7 @@ class CartScreen extends StatelessWidget {
                                         itemCount: controller.cartData.length,
                                         itemBuilder: (context, index) {
                                           return CartItemWidget(
+                                            isCart: true,
                                             id: controller
                                                 .cartData[index].productId,
                                             imgUrl: controller
@@ -71,6 +72,20 @@ class CartScreen extends StatelessWidget {
                                                 .cartData[index].quantity,
                                             prodTitleAr: controller
                                                 .cartData[index].productNameAr,
+                                            increaseCount: () {
+                                              controller.increaseCount(
+                                                  controller.cartData[index]
+                                                      .productId!);
+                                            },
+                                            decreseCount: () {
+                                              controller.decreseCount(controller
+                                                  .cartData[index].productId!);
+                                            },
+                                            deleteOneITem: () {
+                                              controller.deleteOneItemFromCart(
+                                                  controller.cartData[index]
+                                                      .productId!);
+                                            },
                                           );
                                         },
                                       ),
@@ -154,14 +169,6 @@ class CartScreen extends StatelessWidget {
                                     GestureDetector(
                                       onTap: () {
                                         controller.deleteCartItems();
-                                        // Helper().actionDialog(
-                                        //     confirm: () {
-                                        //       controller.deleteCartItems();
-                                        //       Get.back();
-                                        //     },
-                                        //     cancel: () => Get.back(),
-                                        //     title: "emptyCart".tr,
-                                        //     body: "deleteConfirm".tr);
                                       },
                                       child: Container(
                                         width: Get.width * .175,
@@ -183,7 +190,7 @@ class CartScreen extends StatelessWidget {
                                         style: ElevatedButton.styleFrom(
                                           fixedSize: Size(
                                               Get.width * .7, Get.height * .07),
-                                          backgroundColor: iconColor,
+                                          backgroundColor: containerBackgroun,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(200),

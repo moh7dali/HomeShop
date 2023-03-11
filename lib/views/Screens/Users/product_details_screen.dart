@@ -6,6 +6,7 @@ import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:homeShop/viewmodel/product_details_viewmodel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductDetails extends StatelessWidget {
   ProductDetails({this.productId});
@@ -139,6 +140,78 @@ class ProductDetails extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: Get.height * .02),
+                            Divider(color: iconColor),
+                            Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  "Shop Info :- ",
+                                  style: AppTheme.lightStyle(
+                                      color: Colors.black, size: 20),
+                                )),
+                            SizedBox(height: Get.height * .02),
+                            Text(
+                              "${controller.shopName}",
+                              style: AppTheme.lightStyle(
+                                  color: Colors.black, size: 20),
+                            ),
+                            SizedBox(height: Get.height * .02),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                GestureDetector(
+                                  onTap: () async {
+                                    if (!await launchUrl(
+                                        Uri.parse(controller.faceBook!),
+                                        mode: LaunchMode.externalApplication)) {
+                                      throw 'Could not launch ${controller.faceBook!}';
+                                    }
+                                  },
+                                  child: Image.asset(
+                                    AssetsConstant.facebook,
+                                    width: Get.width * .1,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () async {
+                                    if (!await launchUrl(
+                                        Uri.parse(controller.instgram!),
+                                        mode: LaunchMode.externalApplication)) {
+                                      throw 'Could not launch ${controller.instgram!}';
+                                    }
+                                  },
+                                  child: Image.asset(
+                                    AssetsConstant.instgram,
+                                    width: Get.width * .1,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () async {
+                                    if (!await launchUrl(
+                                        Uri.parse(controller.whatsApp!),
+                                        mode: LaunchMode.externalApplication)) {
+                                      throw 'Could not launch ${controller.whatsApp!}';
+                                    }
+                                  },
+                                  child: Image.asset(
+                                    AssetsConstant.whatsapp,
+                                    width: Get.width * .1,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () async {
+                                    if (!await launchUrl(
+                                        Uri.parse("tel:${controller.phone!}"),
+                                        mode: LaunchMode.externalApplication)) {
+                                      throw 'Could not launch ${controller.faceBook!}';
+                                    }
+                                  },
+                                  child: Image.asset(
+                                    AssetsConstant.phone,
+                                    width: Get.width * .1,
+                                  ),
+                                ),
+                              ],
+                            )
                           ]),
                         ),
                       ),

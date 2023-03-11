@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/model/add_to_cart_model.dart';
 import 'package:homeShop/utils/shared_preference.dart';
 import 'package:homeShop/viewmodel/cart_icon_viewmodel.dart';
+import 'package:homeShop/views/Screens/Users/Home.dart';
+import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 
 class CartViewModel extends GetxController {
   TextEditingController instructionsController = TextEditingController();
@@ -112,6 +117,18 @@ class CartViewModel extends GetxController {
   }
 
   addOrder() async {
+    var uuid = Uuid();
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyy-MM-dd hh:mm a').format(now);
+    FirebaseFirestore.instance.collection('Orders').add({
+      "orderId": uuid.v1(),
+      "userId": FirebaseAuth.instance.currentUser!.uid,
+      "products": cartToJson(cartData),
+      "date": formattedDate,
+      "specialInstructions": instructionsController.text
+    });
+    deleteCartItems();
+    Get.offAll(Home());
     update();
   }
 }

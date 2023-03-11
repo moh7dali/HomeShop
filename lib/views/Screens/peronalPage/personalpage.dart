@@ -5,9 +5,11 @@ import 'package:get/get.dart';
 import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:homeShop/viewmodel/profile_viewmodel.dart';
+import 'package:homeShop/views/Screens/Users/my_orders_screen.dart';
 import 'package:homeShop/views/Screens/peronalPage/editProfile.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/views/Screens/language_screen.dart';
+import 'package:homeShop/views/Widgets/splash_screen.dart';
 
 class personalInfo extends StatelessWidget {
   personalInfo({this.userId});
@@ -138,6 +140,25 @@ class personalInfo extends StatelessWidget {
                           ],
                         ),
                       ),
+                      // Visibility(
+                      //   visible: controller.userType == 'User',
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.all(4.0),
+                      //     child: Column(
+                      //       children: [
+                      //         ListTile(
+                      //             onTap: () {},
+                      //             title: Text(
+                      //               "favoriteproduct".tr,
+                      //               style: AppTheme.boldStyle(
+                      //                   color: containerBackgroun, size: 18),
+                      //             ),
+                      //             leading: Image.asset(AssetsConstant.heart)),
+                      //         const Divider(color: iconColor),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       Visibility(
                         visible: controller.userType == 'User',
                         child: Padding(
@@ -145,26 +166,9 @@ class personalInfo extends StatelessWidget {
                           child: Column(
                             children: [
                               ListTile(
-                                  onTap: () {},
-                                  title: Text(
-                                    "favoriteproduct".tr,
-                                    style: AppTheme.boldStyle(
-                                        color: containerBackgroun, size: 18),
-                                  ),
-                                  leading: Image.asset(AssetsConstant.heart)),
-                              const Divider(color: iconColor),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Visibility(
-                        visible: controller.userType == 'User',
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Column(
-                            children: [
-                              ListTile(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.to(MyOrdersScreen());
+                                  },
                                   title: Text(
                                     "myOrder".tr,
                                     style: AppTheme.boldStyle(
@@ -195,7 +199,8 @@ class personalInfo extends StatelessWidget {
                         child: ListTile(
                             onTap: () async {
                               await FirebaseAuth.instance.signOut();
-                              Navigator.popAndPushNamed(context, "Login");
+                              Get.to(SplashScreen());
+                              // Navigator.popAndPushNamed(context, "Login");
                             },
                             title: Text(
                               "LogOut".tr,

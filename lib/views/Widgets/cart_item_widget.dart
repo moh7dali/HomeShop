@@ -15,7 +15,11 @@ class CartItemWidget extends StatelessWidget {
       this.totalPrice,
       this.imgUrl,
       this.prodQuantity,
-      this.prodTitleAr});
+      this.prodTitleAr,
+      this.increaseCount,
+      this.decreseCount,
+      this.deleteOneITem,
+      this.isCart});
   String? id;
   String? prodTitle;
   String? imgUrl;
@@ -23,110 +27,113 @@ class CartItemWidget extends StatelessWidget {
   int? itemPrice;
   int? totalPrice;
   String? prodTitleAr;
+  Function? increaseCount;
+  Function? decreseCount;
+  Function? deleteOneITem;
+  bool? isCart;
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CartViewModel>(
-      builder: (controller) => Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          shrinkWrap: true,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10)),
-                    child: CachedNetworkImage(
-                      imageUrl: imgUrl ?? '',
-                      fit: BoxFit.fitHeight,
-                      width: Get.width * .25,
-                      placeholder: (w, e) => Image.asset(
-                        AssetsConstant.loading,
-                        fit: BoxFit.cover,
-                      ),
-                      errorWidget: (c, e, s) =>
-                          Image.asset(AssetsConstant.logo2),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: ListView(
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10)),
+                  child: CachedNetworkImage(
+                    imageUrl: imgUrl ?? '',
+                    fit: BoxFit.fitHeight,
+                    width: Get.width * .25,
+                    placeholder: (w, e) => Image.asset(
+                      AssetsConstant.loading,
+                      fit: BoxFit.cover,
                     ),
+                    errorWidget: (c, e, s) => Image.asset(AssetsConstant.logo2),
                   ),
                 ),
-                SizedBox(width: 5),
-                SizedBox(
-                  width: Get.width * .5,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+              ),
+              SizedBox(width: 5),
+              SizedBox(
+                width: Get.width * .5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text('ProdactTitle'.tr,
+                            style: AppTheme.boldStyle(
+                                color: Colors.black, size: 16)),
+                        Text(
+                            appLanguage == 'en' ? '$prodTitle' : '$prodTitleAr',
+                            style: AppTheme.lightStyle(
+                                color: Colors.black, size: 16))
+                      ],
+                    ),
+                    Divider(
+                      height: 20,
+                      thickness: 2,
+                      color: Colors.grey.withOpacity(.5),
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('ProdactTitle'.tr,
-                              style: AppTheme.boldStyle(
+                          Text('oneItemPrice'.tr,
+                              style: AppTheme.lightStyle(
                                   color: Colors.black, size: 16)),
-                          Text(
-                              appLanguage == 'en'
-                                  ? '$prodTitle'
-                                  : '$prodTitleAr',
+                          Text('${itemPrice ?? 0.toStringAsFixed(2)}',
+                              style: AppTheme.boldStyle(
+                                  color: Colors.black, size: 15))
+                        ]),
+                    Divider(
+                      height: 20,
+                      thickness: 2,
+                      color: Colors.grey.withOpacity(.5),
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('quantity'.tr,
+                              style: AppTheme.lightStyle(
+                                  color: Colors.black, size: 16)),
+                          Text('${prodQuantity ?? 0}'.tr,
                               style: AppTheme.lightStyle(
                                   color: Colors.black, size: 16))
-                        ],
-                      ),
-                      Divider(
-                        height: 20,
-                        thickness: 2,
-                        color: Colors.grey.withOpacity(.5),
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('oneItemPrice'.tr,
-                                style: AppTheme.lightStyle(
-                                    color: Colors.black, size: 16)),
-                            Text('${itemPrice ?? 0.toStringAsFixed(2)}',
-                                style: AppTheme.boldStyle(
-                                    color: Colors.black, size: 15))
-                          ]),
-                      Divider(
-                        height: 20,
-                        thickness: 2,
-                        color: Colors.grey.withOpacity(.5),
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('quantity'.tr,
-                                style: AppTheme.lightStyle(
-                                    color: Colors.black, size: 16)),
-                            Text('${prodQuantity ?? 0}'.tr,
-                                style: AppTheme.lightStyle(
-                                    color: Colors.black, size: 16))
-                          ]),
-                      SizedBox(height: Get.height * .01),
-                      Divider(
-                        height: 20,
-                        thickness: 2,
-                        color: Colors.grey.withOpacity(.5),
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('totalPrice'.tr,
-                                style: AppTheme.lightStyle(
-                                    color: Colors.black, size: 16)),
-                            Text('${totalPrice ?? 0.toStringAsFixed(2)}'.tr,
-                                style: AppTheme.lightStyle(
-                                    color: Colors.black, size: 16))
-                          ]),
-                      SizedBox(height: Get.height * 0.01),
-                      Row(
+                        ]),
+                    SizedBox(height: Get.height * .01),
+                    Divider(
+                      height: 20,
+                      thickness: 2,
+                      color: Colors.grey.withOpacity(.5),
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('totalPrice'.tr,
+                              style: AppTheme.lightStyle(
+                                  color: Colors.black, size: 16)),
+                          Text('${totalPrice ?? 0.toStringAsFixed(2)}'.tr,
+                              style: AppTheme.lightStyle(
+                                  color: Colors.black, size: 16))
+                        ]),
+                    SizedBox(height: Get.height * 0.01),
+                    Visibility(
+                      visible: isCart!,
+                      child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             GestureDetector(
                               onTap: () {
-                                controller.decreseCount(id!);
+                                decreseCount!();
+                                //controller.decreseCount(id!);
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -157,7 +164,8 @@ class CartItemWidget extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                controller.increaseCount(id!);
+                                increaseCount!();
+                                //controller.increaseCount(id!);
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -171,14 +179,17 @@ class CartItemWidget extends StatelessWidget {
                                   )),
                             )
                           ]),
-                      SizedBox(height: Get.height * 0.01)
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: Get.height * 0.01)
+                  ],
                 ),
-                SizedBox(width: Get.width * .05),
-                GestureDetector(
+              ),
+              SizedBox(width: Get.width * .05),
+              Visibility(
+                visible: isCart!,
+                child: GestureDetector(
                   onTap: () {
-                    controller.deleteOneItemFromCart(id!);
+                    //controller.deleteOneItemFromCart(id!);
                   },
                   child: Container(
                       decoration: BoxDecoration(
@@ -189,11 +200,11 @@ class CartItemWidget extends StatelessWidget {
                         color: Colors.white,
                         size: 30,
                       )),
-                )
-              ],
-            ),
-          ],
-        ),
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

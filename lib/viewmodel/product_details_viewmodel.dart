@@ -17,6 +17,12 @@ class ProductDetailsViewModel extends GetxController {
   int? price;
   int? offerPrice;
   int? fixedPrice;
+  String? shopName;
+  String? shopId;
+  String? faceBook;
+  String? whatsApp;
+  String? instgram;
+  String? phone;
   @override
   void onInit() {
     getProudectDetails(productId);
@@ -28,13 +34,33 @@ class ProductDetailsViewModel extends GetxController {
     final docRef = await db.collection("products").get().then((value) {
       value.docs.forEach((element) {
         if (element.data()["productID"] == productId) {
+          print(element.data());
           data.addAll(element.data());
           price = data['productPrice'];
+          shopName = element.get('shopName');
+          shopId = element.get('shopID');
           hasOfferdPrice = false;
           offerPrice = 0;
           fixedPrice = price;
         }
         update();
+      });
+    });
+    getSocialMediaInfo();
+    update();
+  }
+
+  getSocialMediaInfo() async {
+    final db = FirebaseFirestore.instance;
+    final docRef = await db.collection("Users").get().then((value) {
+      value.docs.forEach((element) {
+        if (element.get('user_id') == shopId) {
+          print(element.data());
+          faceBook = element.get('facebookUrl');
+          whatsApp = element.get('whatsappUrl');
+          instgram = element.get('instgramUrl');
+          phone = element.get('phone');
+        }
       });
     });
     isLoad = false;

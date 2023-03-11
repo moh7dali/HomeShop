@@ -17,6 +17,10 @@ class AssetsConstant {
   static const String heart = '${directoryImagesPath}heart.gif';
   static const String translation = '${directoryImagesPath}translation.gif';
   static const String noProduct = '${directoryImagesPath}hoarding.png';
+  static const String facebook = '${directoryImagesPath}facebook.png';
+  static const String instgram = '${directoryImagesPath}instagram.png';
+  static const String whatsapp = '${directoryImagesPath}whatsapp.png';
+  static const String phone = '${directoryImagesPath}telephone.png';
   static const String logout = '${directoryImagesPath}logout.gif';
   static const String basketIcon =
       '${directoryImagesPath}basket_white_icon.png';
