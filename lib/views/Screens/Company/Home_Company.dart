@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +5,7 @@ import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:homeShop/views/Screens/Company/mainCompany.dart';
 import 'package:homeShop/utils/constants.dart';
-import 'package:homeShop/views/Screens/Users/peronalPage/personalpage.dart';
+import 'package:homeShop/views/Screens/peronalPage/personalpage.dart';
 import 'package:homeShop/views/Widgets/cart_icon_widget.dart';
 
 class HOME_Company extends StatefulWidget {
@@ -20,7 +19,7 @@ String username = "";
 String img_url = "";
 int selectedIndex = 0;
 List<Widget> screen = [
- HomeCompany(),
+  HomeCompany(),
   personalInfo(
     userId: FirebaseAuth.instance.currentUser!.uid,
   )
@@ -30,14 +29,13 @@ class _HOME_CompanyState extends State<HOME_Company> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:backgroud,
+      backgroundColor: backgroud,
       appBar: AppBar(
         iconTheme: IconThemeData(color: containerBackgroun),
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(AssetsConstant.logo2, width: Get.width * .2),
         centerTitle: true,
-      
       ),
       body: screen.elementAt(selectedIndex),
       bottomNavigationBar: BottomNavigationBar(

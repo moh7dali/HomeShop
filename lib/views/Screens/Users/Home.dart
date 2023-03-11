@@ -6,7 +6,7 @@ import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:homeShop/views/Screens/Users/main_Screen.dart';
 import 'package:homeShop/utils/constants.dart';
-import 'package:homeShop/views/Screens/Users/peronalPage/personalpage.dart';
+import 'package:homeShop/views/Screens/peronalPage/personalpage.dart';
 import 'package:homeShop/views/Widgets/cart_icon_widget.dart';
 
 class Home extends StatefulWidget {

@@ -40,7 +40,7 @@ class HomeCompany extends StatelessWidget {
                                           title: "noproudects".tr,
                                           subTitle: "",
                                           imgUrl: AssetsConstant.noProduct,
-                                          imgSize: 300,
+                                          imgSize: 150,
                                         )
                                       : ListView.builder(
                                           shrinkWrap: true,

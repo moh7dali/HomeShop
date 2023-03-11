@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/main.dart';
-import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:homeShop/viewmodel/language_viewmodel.dart';
