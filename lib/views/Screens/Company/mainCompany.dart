@@ -20,7 +20,6 @@ class HomeCompany extends StatelessWidget {
       init: HomeCompanyViewModel(),
       builder: (controller) {
         return Scaffold(
-            
             body: Column(
               children: [
                 controller.isLoad
@@ -40,8 +39,8 @@ class HomeCompany extends StatelessWidget {
                                       ? NoItemWidget(
                                           title: "noproudects".tr,
                                           subTitle: "",
-                                          imgUrl: AssetsConstant.logo2,
-                                          imgSize: 100,
+                                          imgUrl: AssetsConstant.noProduct,
+                                          imgSize: 300,
                                         )
                                       : ListView.builder(
                                           shrinkWrap: true,
@@ -57,6 +56,11 @@ class HomeCompany extends StatelessWidget {
                                                   .data[index]['productImgUrl'],
                                               productPrice: controller
                                                   .data[index]['productPrice'],
+                                              productNameAr: controller
+                                                  .data[index]['productNameAr'],
+                                              productCategory:
+                                                  controller.data[index]
+                                                      ['productCategory'],
                                               edit: () {
                                                 print("edit clicked");
                                                 Get.to(AddProductScreen(

@@ -16,6 +16,7 @@ class AssetsConstant {
   static const String pallete = '${directoryImagesPath}pallete.gif';
   static const String heart = '${directoryImagesPath}heart.gif';
   static const String translation = '${directoryImagesPath}translation.gif';
+  static const String noProduct = '${directoryImagesPath}hoarding.png';
   static const String logout = '${directoryImagesPath}logout.gif';
   static const String basketIcon =
       '${directoryImagesPath}basket_white_icon.png';

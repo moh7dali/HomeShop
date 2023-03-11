@@ -16,6 +16,7 @@ class ProductCardWidget extends StatelessWidget {
       this.productNameAr,
       this.productPrice,
       this.productImgUrl,
+      this.productCategory,
       this.isShop,
       this.delete,
       this.edit});
@@ -23,6 +24,7 @@ class ProductCardWidget extends StatelessWidget {
   String? productImgUrl;
   String? productName;
   String? productNameAr;
+  String? productCategory;
   int? productPrice;
   bool? isShop;
   Function? edit;
@@ -40,15 +42,40 @@ class ProductCardWidget extends StatelessWidget {
               ? Get.dialog(
                   CupertinoAlertDialog(
                     title: Text(
-                      productName.toString().toUpperCase(),
+                      'info'.tr,
                       style: const TextStyle(
                         fontSize: titleSize,
                       ),
                     ),
                     content: Column(
                       children: [
-                        const SizedBox(
-                          height: 10,
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: containerBackgroun,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "title in arabic",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: subTitleSize,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            productNameAr!,
+                            style: const TextStyle(
+                              fontSize: ParagraphSize,
+                            ),
+                            textAlign: TextAlign.justify,
+                          ),
                         ),
                         Container(
                           width: double.infinity,
@@ -100,6 +127,34 @@ class ProductCardWidget extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             productPrice!.toString(),
+                            style: const TextStyle(
+                              fontSize: ParagraphSize,
+                            ),
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: containerBackgroun,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "categorie",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: subTitleSize,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            productCategory.toString(),
                             style: const TextStyle(
                               fontSize: ParagraphSize,
                             ),
