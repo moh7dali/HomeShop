@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\96279\\Desktop\\111\\homeshop\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rIN\\values-en-rIN.xml",
+            "outputFile": "/Users/noor/Desktop/Flutter/homeShop/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\ec4f9610c794fa4cc1c13fbaada59709\\transformed\\browser-1.4.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,153,250,359",
-                        "endColumns": "97,96,108,98",
-                        "endOffsets": "148,245,354,453"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "2,12,13,14",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,800,897,1006",
-                        "endColumns": "97,96,108,98",
-                        "endOffsets": "148,892,1001,1100"
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1105",
+                        "endColumns": "100",
+                        "endOffsets": "1201"
                     }
                 },
                 {
-                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\1746c5ca390f2139f0846cb30ba7bd1c\\transformed\\jetified-exoplayer-core-2.18.1\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/Users/noor/.gradle/caches/transforms-3/1746c5ca390f2139f0846cb30ba7bd1c/transformed/jetified-exoplayer-core-2.18.1/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\e4e4e859a6c3eb07fcd255b9a85ecd7f\\transformed\\core-1.8.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/Users/noor/.gradle/caches/transforms-3/ec4f9610c794fa4cc1c13fbaada59709/transformed/browser-1.4.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,153,250,359",
+                        "endColumns": "97,96,108,98",
+                        "endOffsets": "148,245,354,453"
                     },
                     "to": {
-                        "startLines": "15",
-                        "startColumns": "4",
-                        "startOffsets": "1105",
-                        "endColumns": "100",
-                        "endOffsets": "1201"
+                        "startLines": "2,12,13,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,800,897,1006",
+                        "endColumns": "97,96,108,98",
+                        "endOffsets": "148,892,1001,1100"
                     }
                 }
             ]

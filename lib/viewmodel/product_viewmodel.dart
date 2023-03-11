@@ -17,13 +17,16 @@ class ProductViewModel extends GetxController {
   Future init(String categoriyRule) async {
     isLoad = true;
     data = [];
+    print(categoriyRule);
     getProduct(categoriyRule);
   }
 
-  Future getProduct(String ) async {
+  Future getProduct(String categoriyRule) async {
     final db = FirebaseFirestore.instance;
     final docRef = await db.collection("products").get().then((value) {
       value.docs.forEach((element) {
+        print("__________");
+        print(element.data()['productCategory']);
         if (element.data()['productCategory'] == categoriyRule) {
           print(element.data());
           data.add(element.data());

@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
-import 'package:homeShop/views/Screens/Users/cart_screen.dart';
 import 'package:homeShop/views/Screens/Users/main_Screen.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/views/Screens/Users/peronalPage/personalpage.dart';
 import 'package:homeShop/views/Widgets/cart_icon_widget.dart';
-import 'package:homeShop/views/Widgets/drawer.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -22,7 +20,7 @@ String username = "";
 String img_url = "";
 int selectedIndex = 0;
 List<Widget> screen = [
-  MainScreen(),
+  const MainScreen(),
   personalInfo(
     userId: FirebaseAuth.instance.currentUser!.uid,
   )

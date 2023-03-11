@@ -69,6 +69,8 @@ class CartScreen extends StatelessWidget {
                                                 .cartData[index].productName,
                                             prodQuantity: controller
                                                 .cartData[index].quantity,
+                                            prodTitleAr: controller
+                                                .cartData[index].productNameAr,
                                           );
                                         },
                                       ),

@@ -8,20 +8,21 @@ import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:homeShop/viewmodel/cart_viewmodel.dart';
 
 class CartItemWidget extends StatelessWidget {
-  CartItemWidget({
-    this.id,
-    this.prodTitle,
-    this.itemPrice,
-    this.totalPrice,
-    this.imgUrl,
-    this.prodQuantity,
-  });
+  CartItemWidget(
+      {this.id,
+      this.prodTitle,
+      this.itemPrice,
+      this.totalPrice,
+      this.imgUrl,
+      this.prodQuantity,
+      this.prodTitleAr});
   String? id;
   String? prodTitle;
   String? imgUrl;
   int? prodQuantity;
   int? itemPrice;
   int? totalPrice;
+  String? prodTitleAr;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartViewModel>(
@@ -65,9 +66,12 @@ class CartItemWidget extends StatelessWidget {
                           Text('ProdactTitle'.tr,
                               style: AppTheme.boldStyle(
                                   color: Colors.black, size: 16)),
-                                  Text('${prodTitle.toString()}'.tr,
-                                style: AppTheme.lightStyle(
-                                    color: Colors.black, size: 16))
+                          Text(
+                              appLanguage == 'en'
+                                  ? '$prodTitle'
+                                  : '$prodTitleAr',
+                              style: AppTheme.lightStyle(
+                                  color: Colors.black, size: 16))
                         ],
                       ),
                       Divider(

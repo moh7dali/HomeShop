@@ -37,7 +37,7 @@ class _MainScreenState extends State<MainScreen> {
                   SectionsCard(
                     OnTapping: () {
                       Get.to(ProductScreen(
-                        categoriyRule: "Food",
+                        categoriyRule: "food",
                       ));
                     },
                     CardTitle: "food".tr,
@@ -87,7 +87,7 @@ class _MainScreenState extends State<MainScreen> {
                         categoriyRule: "electronicAccessories",
                       ));
                     },
-                    CardTitle: "ElectronicAccessories".tr,
+                    CardTitle: "electronicAccessories".tr,
                     CardSubTitle: "",
                     ImageName: AssetsConstant.gamer,
                   ),

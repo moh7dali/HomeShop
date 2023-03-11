@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homeShop/main.dart';
 import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
@@ -147,7 +148,10 @@ class ProductCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${productName}',
+                      Text(
+                          appLanguage == 'en'
+                              ? '${productName}'
+                              : '$productNameAr',
                           style: AppTheme.lightStyle(
                               color: Colors.black, size: 18)),
                       Row(

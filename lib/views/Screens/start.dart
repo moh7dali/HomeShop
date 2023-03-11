@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/assets_constant.dart';
+
 class Start_page extends StatefulWidget {
   const Start_page({super.key});
 
@@ -27,11 +28,11 @@ class _Start_pageState extends State<Start_page> {
               ),
               Padding(
                 padding: const EdgeInsets.all(13),
-                child: Text(
-                  "Lets Make a Great Deal",
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.amiri(fontSize: 30,)
-                ),
+                child: Text("Lets Make a Great Deal",
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.amiri(
+                      fontSize: 30,
+                    )),
               ),
               Row(
                 children: [
@@ -41,7 +42,7 @@ class _Start_pageState extends State<Start_page> {
                   Expanded(
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.popAndPushNamed(context, "welcome");
+                          Navigator.popAndPushNamed(context, "Login");
                         },
                         style: OutlinedButton.styleFrom(
                           shape: const RoundedRectangleBorder(),
@@ -50,7 +51,8 @@ class _Start_pageState extends State<Start_page> {
                           padding: const EdgeInsets.symmetric(vertical: 15),
                         ),
                         child: Text("Get Started",
-                            style: GoogleFonts.montserrat(color: Colors.white,fontSize: 25))),
+                            style: GoogleFonts.montserrat(
+                                color: Colors.white, fontSize: 25))),
                   ),
                 ],
               )

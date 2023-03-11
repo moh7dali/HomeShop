@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\96279\\Desktop\\111\\homeshop\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
+            "outputFile": "/Users/noor/Desktop/Flutter/homeShop/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\1746c5ca390f2139f0846cb30ba7bd1c\\transformed\\jetified-exoplayer-core-2.18.1\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,187,252,316,393,458,548,633",
-                        "endColumns": "69,61,64,63,76,64,89,84,68",
-                        "endOffsets": "120,182,247,311,388,453,543,628,697"
-                    },
-                    "to": {
-                        "startLines": "3,4,5,6,7,8,9,10,11",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "153,223,285,350,414,491,556,646,731",
-                        "endColumns": "69,61,64,63,76,64,89,84,68",
-                        "endOffsets": "218,280,345,409,486,551,641,726,795"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\ec4f9610c794fa4cc1c13fbaada59709\\transformed\\browser-1.4.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "/Users/noor/.gradle/caches/transforms-3/ec4f9610c794fa4cc1c13fbaada59709/transformed/browser-1.4.0/res/values-en-rAU/values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\e4e4e859a6c3eb07fcd255b9a85ecd7f\\transformed\\core-1.8.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "/Users/noor/.gradle/caches/transforms-3/1746c5ca390f2139f0846cb30ba7bd1c/transformed/jetified-exoplayer-core-2.18.1/res/values-en-rAU/values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,187,252,316,393,458,548,633",
+                        "endColumns": "69,61,64,63,76,64,89,84,68",
+                        "endOffsets": "120,182,247,311,388,453,543,628,697"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "153,223,285,350,414,491,556,646,731",
+                        "endColumns": "69,61,64,63,76,64,89,84,68",
+                        "endOffsets": "218,280,345,409,486,551,641,726,795"
+                    }
+                },
+                {
+                    "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/values-en-rAU/values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

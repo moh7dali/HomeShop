@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -32,11 +33,28 @@ class personalInfo extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            CircleAvatar(
-                                radius: 50,
-                                backgroundColor: containerBackgroun,
-                                backgroundImage:
-                                    NetworkImage(controller.imgUrl)),
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    bottomRight: Radius.circular(10)),
+                                child: CachedNetworkImage(
+                                  imageUrl: controller.imgUrl,
+                                  fit: BoxFit.fitHeight,
+                                  width: Get.width,
+                                  height: Get.height * .15,
+                                  placeholder: (w, e) => Image.asset(
+                                    AssetsConstant.loading,
+                                    fit: BoxFit.fitHeight,
+                                    width: Get.width * .5,
+                                  ),
+                                  errorWidget: (c, e, s) => Image.asset(
+                                    AssetsConstant.logo2,
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                ),
+                              ),
+                            ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,12 +63,13 @@ class personalInfo extends StatelessWidget {
                                   children: [
                                     Text(
                                       "UserName".tr,
-                                      style:
-                                          AppTheme.lightStyle(color: Colors.white),
-                                    ),Text(
+                                      style: AppTheme.lightStyle(
+                                          color: Colors.white),
+                                    ),
+                                    Text(
                                       controller.username,
-                                      style:
-                                          AppTheme.lightStyle(color: Colors.white),
+                                      style: AppTheme.lightStyle(
+                                          color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -58,12 +77,13 @@ class personalInfo extends StatelessWidget {
                                   children: [
                                     Text(
                                       "Email".tr,
-                                      style:
-                                          AppTheme.lightStyle(color: Colors.white),
-                                    ), Text(
+                                      style: AppTheme.lightStyle(
+                                          color: Colors.white),
+                                    ),
+                                    Text(
                                       controller.email,
-                                      style:
-                                          AppTheme.lightStyle(color: Colors.white),
+                                      style: AppTheme.lightStyle(
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -71,12 +91,13 @@ class personalInfo extends StatelessWidget {
                                   children: [
                                     Text(
                                       "Phone".tr,
-                                      style:
-                                          AppTheme.lightStyle(color: Colors.white),
-                                    ),Text(
+                                      style: AppTheme.lightStyle(
+                                          color: Colors.white),
+                                    ),
+                                    Text(
                                       controller.phone,
-                                      style:
-                                          AppTheme.lightStyle(color: Colors.white),
+                                      style: AppTheme.lightStyle(
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -86,7 +107,7 @@ class personalInfo extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.white,
                                         minimumSize: Size(
-                                            Get.width * .5, Get.height * .02),
+                                            Get.width * .4, Get.height * .02),
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(30))),
@@ -117,30 +138,44 @@ class personalInfo extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "favoriteproduct".tr,
-                              style: AppTheme.boldStyle(
-                                  color: containerBackgroun, size: 18),
-                            ),
-                            leading: Image.asset(AssetsConstant.heart)),
+                      Visibility(
+                        visible: controller.userType == 'User',
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Column(
+                            children: [
+                              ListTile(
+                                  onTap: () {},
+                                  title: Text(
+                                    "favoriteproduct".tr,
+                                    style: AppTheme.boldStyle(
+                                        color: containerBackgroun, size: 18),
+                                  ),
+                                  leading: Image.asset(AssetsConstant.heart)),
+                              const Divider(color: iconColor),
+                            ],
+                          ),
+                        ),
                       ),
-                      const Divider(color: iconColor),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "myOrder".tr,
-                              style: AppTheme.boldStyle(
-                                  color: containerBackgroun, size: 18),
-                            ),
-                            leading: Image.asset(AssetsConstant.pallete)),
+                      Visibility(
+                        visible: controller.userType == 'User',
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Column(
+                            children: [
+                              ListTile(
+                                  onTap: () {},
+                                  title: Text(
+                                    "myOrder".tr,
+                                    style: AppTheme.boldStyle(
+                                        color: containerBackgroun, size: 18),
+                                  ),
+                                  leading: Image.asset(AssetsConstant.pallete)),
+                              const Divider(color: iconColor),
+                            ],
+                          ),
+                        ),
                       ),
-                      const Divider(color: iconColor),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: ListTile(

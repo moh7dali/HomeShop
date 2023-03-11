@@ -7,7 +7,6 @@ import 'package:homeShop/views/Screens/Authentication/Company_signup.dart';
 import 'package:homeShop/views/Screens/Authentication/Login.dart';
 import 'package:homeShop/views/Screens/Authentication/signup.dart';
 import 'package:homeShop/views/Screens/Users/Home.dart';
-import 'package:homeShop/views/Screens/Welcome.dart';
 import 'package:homeShop/views/Screens/start.dart';
 import 'package:homeShop/views/Widgets/splash_screen.dart';
 import 'views/Screens/Authentication/ForgetPass.dart';
@@ -33,7 +32,6 @@ Future<void> main() async {
       "Home": (context) => Home(),
       "Start": (context) => const Start_page(),
       "forgetpassword": (context) => const ForgetPassword(),
-      "welcome": (context) => Welcome(),
     },
     home: const MyApp(),
   ));

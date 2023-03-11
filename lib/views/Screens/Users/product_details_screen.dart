@@ -25,7 +25,9 @@ class ProductDetails extends StatelessWidget {
                 appBar: AppBar(
                   iconTheme: const IconThemeData(color: Colors.white),
                   title: Text(
-                    controller.data['productName'],
+                    appLanguage == 'en'
+                        ? controller.data['productName']
+                        : controller.data['productNameAr'],
                     style: AppTheme.lightStyle(color: Colors.white, size: 17),
                   ),
                   backgroundColor: containerBackgroun,

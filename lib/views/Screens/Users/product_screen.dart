@@ -16,7 +16,7 @@ class ProductScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: containerBackgroun,
-            title: Text(categoriyRule!),
+            title: Text(categoriyRule!.tr),
             actions: [
               CartIcon(
                 color: Colors.white,

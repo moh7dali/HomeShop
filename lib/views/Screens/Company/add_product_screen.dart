@@ -66,7 +66,7 @@ class AddProductScreen extends StatelessWidget {
                       height: 5,
                     ),
                     TextFormField(
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                           prefixIcon: Icon(Ionicons.text_outline),
                           labelText: 'prouductnameinenglish'.tr,
                           hintText: 'prouductnameinenglish'.tr,
@@ -77,7 +77,7 @@ class AddProductScreen extends StatelessWidget {
                       height: 20,
                     ),
                     TextFormField(
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                           prefixIcon: Icon(Ionicons.document_text_outline),
                           labelText: 'prouductnameinarabic'.tr,
                           hintText: 'prouductnameinarabic'.tr,
@@ -89,7 +89,7 @@ class AddProductScreen extends StatelessWidget {
                     ),
                     TextFormField(
                       keyboardType: TextInputType.number,
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                           prefixIcon: Icon(Ionicons.calendar_outline),
                           labelText: 'productPrice'.tr,
                           hintText: 'productPrice'.tr,
@@ -103,14 +103,14 @@ class AddProductScreen extends StatelessWidget {
                       items: controller.productCategory.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Text(items),
+                          child: Text(items.tr),
                         );
                       }).toList(),
                       onChanged: (value) {
                         controller.getProductCategory(value);
                       },
                       value: controller.selectedProductCategory,
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                           prefixIcon: Icon(Ionicons.link_outline),
                           labelText: 'productCategory'.tr,
                           hintText: 'productCategory'.tr,

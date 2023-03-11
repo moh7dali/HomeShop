@@ -8,6 +8,7 @@ class ProfileViewModel extends GetxController {
   String email = "";
   String username = "";
   String phone = "";
+  String userType = "";
   bool visibilty = false;
   bool isLoad = true;
 
@@ -27,6 +28,7 @@ class ProfileViewModel extends GetxController {
           email = element.get('Email');
           username = element.get('Fullname');
           phone = element.get('phone');
+          userType = element.get('rules');
           visibilty = true;
           update();
         }

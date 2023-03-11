@@ -11,6 +11,7 @@ String cartToJson(List<CartItem> data) =>
 class CartItem {
   String? productId;
   String? productName;
+  String? productNameAr;
   String? productImgUrl;
   int? productPrice;
   String? productCategory;
@@ -20,6 +21,7 @@ class CartItem {
   CartItem({
     this.productId,
     this.productName,
+    this.productNameAr,
     this.productImgUrl,
     this.productPrice,
     this.productCategory,
@@ -31,9 +33,12 @@ class CartItem {
     if (json["productID"] is String) {
       productId = json["productID"];
     }
-   
-       if (json["productName"] is String) {
+
+    if (json["productName"] is String) {
       productName = json["productName"];
+    }
+    if (json["productNameAr"] is String) {
+      productNameAr = json["productNameAr"];
     }
     if (json["productImgUrl"] is String) {
       productImgUrl = json["productImgUrl"];
@@ -56,6 +61,7 @@ class CartItem {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["productID"] = productId;
     _data["productName"] = productName;
+    _data["productNameAr"] = productNameAr;
     _data["productImgUrl"] = productImgUrl;
     _data["productPrice"] = productPrice;
     _data["productCategory"] = productCategory;

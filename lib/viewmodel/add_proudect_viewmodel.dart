@@ -26,10 +26,10 @@ class AddProductViewModel extends GetxController {
   bool isLoad = true;
   String? shopName;
   List<String> productCategory = [
-    'Food',
+    'food',
     'Clothes',
-    'Home Accessories',
-    'Electronic Accessories'
+    'homeAccessories',
+    'electronicAccessories'
   ];
   String? selectedProductCategory;
   bool isEdit = false;

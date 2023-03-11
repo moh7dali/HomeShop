@@ -228,6 +228,9 @@ class _Sign_upState extends State<Sign_up> {
                                 'phone': phoneController.text,
                                 'img': "",
                                 'rules': "User",
+                                'whatsappUrl': "",
+                                'facebookUrl': "",
+                                'instgramUrl': ""
                               }).then((value) => print(
                                       "user Added +++++++++++++++++++++"));
                               print(

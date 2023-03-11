@@ -66,6 +66,7 @@ class ProductDetailsViewModel extends GetxController {
     addToCartModel = CartItem(
         productId: data['productID'],
         productName: data['productName'],
+        productNameAr: data['productNameAr'],
         productImgUrl: data['productImgUrl'],
         productPrice: price,
         quantity: count,
