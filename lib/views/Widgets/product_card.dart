@@ -6,6 +6,7 @@ import 'package:homeShop/utils/assets_constant.dart';
 import 'package:homeShop/utils/constants.dart';
 import 'package:homeShop/utils/theme/app_theme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:homeShop/views/Screens/Company/user_orders_screen.dart';
 import 'package:homeShop/views/Screens/Users/product_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -161,6 +162,11 @@ class ProductCardWidget extends StatelessWidget {
                             textAlign: TextAlign.justify,
                           ),
                         ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Get.to(UserOrders(prodId: productID));
+                            },
+                            child: Text("show buyer"))
                       ],
                     ),
                     actions: <Widget>[
