@@ -32,4 +32,12 @@ const Map<String, String> ar = {
   'productCategory': "فئة العنصر",
   'prouductnameinarabic': 'اسم العنصر باللغة العربية',
   'prouductnameinenglish': 'اسم العنصر باللغة الانجليزية',
+  'info':'المعلومات',
+  'titleinarabic':'العنوان بلغه العربيه',
+  'titleinenglis':'العنوان بلغه الانجليزيه',
+  "price":"السعر",
+  "categorie":"الفئه",
+  "showbuyer":"اضهار المشترين",
+  'Delete':'حذف',
+  
 };

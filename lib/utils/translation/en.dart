@@ -29,4 +29,11 @@ const Map<String, String> en = {
   "productPrice": "Product Price",
   'productCategory': 'product Category',
   'prouductnameinarabic': 'Product Name In Arabic',
+  'info':'info',
+  'titleinarabic':'title in arabic',
+  'titleinenglis':'title in englis',
+  "price":"price",
+  "categorie":"categorie",
+  "showbuyer":"Show Buyers",
+  'Delete':'Delete',
 };
