@@ -56,10 +56,10 @@ class ProductCardWidget extends StatelessWidget {
                             color: containerBackgroun,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Padding(
+                          child:  Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              "title in arabic",
+                              "titleinarabic".tr,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: subTitleSize,
@@ -84,10 +84,10 @@ class ProductCardWidget extends StatelessWidget {
                             color: containerBackgroun,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Padding(
+                          child:  Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              "title in englis",
+                              "titleinenglis".tr,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: subTitleSize,
@@ -112,10 +112,10 @@ class ProductCardWidget extends StatelessWidget {
                             color: containerBackgroun,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Padding(
+                          child:  Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              "price",
+                              "price".tr,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: subTitleSize,
@@ -140,10 +140,10 @@ class ProductCardWidget extends StatelessWidget {
                             color: containerBackgroun,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Padding(
+                          child:  Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              "categorie",
+                              "categorie".tr,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: subTitleSize,
@@ -162,11 +162,11 @@ class ProductCardWidget extends StatelessWidget {
                             textAlign: TextAlign.justify,
                           ),
                         ),
-                        ElevatedButton(
+                        TextButton(
                             onPressed: () {
                               Get.to(UserOrders(prodId: productID));
                             },
-                            child: Text("show buyer"))
+                            child: Text("showbuyer".tr,style: TextStyle(fontSize: 18,color: containerBackgroun),))
                       ],
                     ),
                     actions: <Widget>[
@@ -174,8 +174,8 @@ class ProductCardWidget extends StatelessWidget {
                           onPressed: () {
                             edit!();
                           },
-                          child: const Text(
-                            'Edit',
+                          child:  Text(
+                            'Edit'.tr,
                             style: TextStyle(
                               fontSize: subTitleSize,
                               color: Colors.black,
@@ -185,8 +185,8 @@ class ProductCardWidget extends StatelessWidget {
                         onPressed: () async {
                           delete!();
                         },
-                        child: const Text(
-                          'Delete',
+                        child:  Text(
+                          'Delete'.tr,
                           style: TextStyle(
                             fontSize: subTitleSize,
                             color: Colors.black,

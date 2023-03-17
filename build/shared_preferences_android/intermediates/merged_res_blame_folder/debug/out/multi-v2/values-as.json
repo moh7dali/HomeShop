@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/noor/Desktop/Flutter/homeShop/build/shared_preferences_android/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
+            "outputFile": "C:\\Users\\96279\\Desktop\\111\\homeshop\\build\\shared_preferences_android\\intermediates\\res\\merged\\debug\\values-as\\values-as.xml",
             "map": [
                 {
-                    "source": "/Users/noor/.gradle/caches/transforms-3/a6af71733717f32964d9532342386834/transformed/core-1.6.0/res/values-as/values-as.xml",
+                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\a6af71733717f32964d9532342386834\\transformed\\core-1.6.0\\res\\values-as\\values-as.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/Users/noor/Desktop/Flutter/homeShop/build/shared_preferences_android/intermediates/res/merged/debug/values-as/values-as.xml",
+            "outputFile": "C:\\Users\\96279\\Desktop\\111\\homeshop\\build\\shared_preferences_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-as\\values-as.xml",
             "map": [
                 {
-                    "source": "/Users/noor/.gradle/caches/transforms-3/a6af71733717f32964d9532342386834/transformed/core-1.6.0/res/values-as/values-as.xml",
+                    "source": "C:\\Users\\96279\\.gradle\\caches\\transforms-3\\a6af71733717f32964d9532342386834\\transformed\\core-1.6.0\\res\\values-as\\values-as.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
