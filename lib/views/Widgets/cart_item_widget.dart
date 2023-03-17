@@ -67,7 +67,7 @@ class CartItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    Wrap(
                       children: [
                         Text('ProdactTitle'.tr,
                             style: AppTheme.boldStyle(
@@ -189,6 +189,7 @@ class CartItemWidget extends StatelessWidget {
                 visible: isCart!,
                 child: GestureDetector(
                   onTap: () {
+                    deleteOneITem!();
                     //controller.deleteOneItemFromCart(id!);
                   },
                   child: Container(

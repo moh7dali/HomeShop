@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/layout/notification_action.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/layout/custom_dialog.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/layout/notification_template_icon_group.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/layout/notification_template_part_time.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/layout/notification_action_tombstone.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/e4e4e859a6c3eb07fcd255b9a85ecd7f/transformed/core-1.8.0/res/layout/notification_action_tombstone.xml"
+    }
+]

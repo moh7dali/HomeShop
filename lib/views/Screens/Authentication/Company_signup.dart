@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:homeShop/utils/constants.dart';
+import 'package:homeShop/utils/helper.dart';
 import 'package:validators/validators.dart';
 
 class Company_Sign_up extends StatefulWidget {
@@ -233,9 +234,10 @@ class _Company_Sign_upState extends State<Company_Sign_up> {
 
                                 Navigator.popAndPushNamed(context, "Login");
                               } on FirebaseAuthException catch (e) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content: Text(e.message.toString())));
+                                Helper().errorSnackBar(e.message.toString());
+                                // ScaffoldMessenger.of(context).showSnackBar(
+                                //     SnackBar(
+                                //         content: Text(e.message.toString())));
                               }
                             }
                           },
@@ -279,8 +281,9 @@ class _Company_Sign_upState extends State<Company_Sign_up> {
 
                             Navigator.popAndPushNamed(context, "Home");
                           } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text(e.toString())));
+                            Helper().errorSnackBar(e.toString());
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            //     SnackBar(content: Text(e.toString())));
                           }
                         },
                         child: Row(

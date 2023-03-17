@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/405117d5755f808db21e2235571010fd/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/405117d5755f808db21e2235571010fd/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/noor/Desktop/Flutter/homeShop/build/geolocator_android/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/noor/.gradle/caches/transforms-3/405117d5755f808db21e2235571010fd/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_text_dark.xml"
+    }
+]

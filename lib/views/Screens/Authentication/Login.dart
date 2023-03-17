@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homeShop/utils/constants.dart';
+import 'package:homeShop/utils/helper.dart';
 import 'package:homeShop/viewmodel/splash_viewmodel.dart';
 import 'package:validators/validators.dart';
 
@@ -64,7 +65,7 @@ class _LoginState extends State<Login> {
                             ),
                             suffixIcon: Icon(
                               Icons.note_alt_outlined,
-                              color: Colors.white,
+                              color: iconColor,
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -156,8 +157,9 @@ class _LoginState extends State<Login> {
                         SplashViewModel splashViewModel = SplashViewModel();
                         await splashViewModel.getSecondScreen();
                       } on FirebaseAuthException catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(e.message.toString())));
+                        Helper().errorSnackBar(e.message.toString());
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //     SnackBar(content: Text(e.message.toString())));
                       }
                     },
                     child: Text("LOGIN",
@@ -201,8 +203,9 @@ class _LoginState extends State<Login> {
                       SplashViewModel splashViewModel = SplashViewModel();
                       await splashViewModel.getSecondScreen();
                     } catch (e) {
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(SnackBar(content: Text(e.toString())));
+                      Helper().errorSnackBar(e.toString());
+                      // ScaffoldMessenger.of(context)
+                      //     .showSnackBar(SnackBar(content: Text(e.toString())));
                     }
                   },
                   child: Row(

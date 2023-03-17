@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:homeShop/utils/constants.dart';
+import 'package:homeShop/utils/helper.dart';
 import 'package:validators/validators.dart';
 
 class Sign_up extends StatefulWidget {
@@ -239,9 +240,10 @@ class _Sign_upState extends State<Sign_up> {
                                 Navigator.popAndPushNamed(context, "Login");
                               }
                             } on FirebaseAuthException catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text(e.message.toString())));
+                              Helper().errorSnackBar(e.message.toString());
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //     SnackBar(
+                              //         content: Text(e.message.toString())));
                             }
                           }
                         },
@@ -307,8 +309,9 @@ class _Sign_upState extends State<Sign_up> {
 
                           Navigator.popAndPushNamed(context, "Check");
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(e.toString())));
+                          Helper().errorSnackBar(e.toString());
+                          // ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(content: Text(e.toString())));
                         }
                       },
                       child: Row(
